@@ -22,7 +22,7 @@ const AppRouter = () => {
 
         <Route path="/" element={<PageBase />}>
           <Route
-            path="/app_dmetal_dev/home"
+            path="/home"
             element={
               <PrivateRoutes>
                 <Home />
@@ -30,7 +30,7 @@ const AppRouter = () => {
             }
           ></Route>
           <Route
-            path="/app_dmetal_dev/aprovacoes"
+            path="/aprovacoes"
             element={
               <PrivateRoutes>
                 <Aprovacoes />
@@ -38,7 +38,7 @@ const AppRouter = () => {
             }
           ></Route>
           <Route
-            path="/app_dmetal_dev/relatorios"
+            path="/relatorios"
             element={
               <PrivateRoutes>
                 <Reports />
@@ -47,7 +47,7 @@ const AppRouter = () => {
           ></Route>
         </Route>
         <Route
-          path="/app_dmetal_dev"
+          path="/"
           element={
             <PageBaseBack description={location.pathname.replace("/", "")} />
           }
