@@ -20,7 +20,7 @@ const AppRouter = () => {
       <Routes location={location} key={location.pathname}>
         <Route path="/app_dmetal_dev" element={<Login />}></Route>
 
-        <Route path="/app_dmetal_dev" element={<PageBase />}>
+        <Route path="/" element={<PageBase />}>
           <Route
             path="/app_dmetal_dev/home"
             element={
