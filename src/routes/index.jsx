@@ -22,7 +22,7 @@ const AppRouter = () => {
 
         <Route path="/" element={<PageBase />}>
           <Route
-            path="/home"
+            path="/app_dmetal_dev/home"
             element={
               <PrivateRoutes>
                 <Home />
