@@ -14,7 +14,10 @@ const HeaderBack = (props) => {
         onClick={() => [navigate(-1)]}
       />
       <span>{props.description}</span>
-      <HiOutlineHome size={28} onClick={() => [navigate("/home")]} />
+      <HiOutlineHome
+        size={28}
+        onClick={() => [navigate("/app_dmetal_dev/home")]}
+      />
     </header>
   );
 };

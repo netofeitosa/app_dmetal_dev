@@ -49,11 +49,13 @@ const AppRouter = () => {
         <Route
           path="/"
           element={
-            <PageBaseBack description={location.pathname.replace("/", "")} />
+            <PageBaseBack
+              description={location.pathname.replace("/app_dmetal_dev/", "")}
+            />
           }
         >
           <Route
-            path="/Usuario"
+            path="/app_dmetal_dev/Usuario"
             element={
               <PrivateRoutes>
                 <User />
@@ -61,7 +63,7 @@ const AppRouter = () => {
             }
           ></Route>
           <Route
-            path="/Despesas"
+            path="/app_dmetal_dev/Despesas"
             element={
               <PrivateRoutes>
                 <AprovacoesDespesas />

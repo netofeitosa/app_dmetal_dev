@@ -22,7 +22,7 @@ const Card = (props) => {
           <div className="container-card-chevron">
             <HiChevronRight
               size={26}
-              onClick={() => [navigate("/" + props.name)]}
+              onClick={() => [navigate("/app_dmetal_dev/" + props.name)]}
             />
           </div>
         </div>

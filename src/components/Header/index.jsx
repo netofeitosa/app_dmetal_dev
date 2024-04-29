@@ -12,7 +12,7 @@ const Header = () => {
         <div className="header-nav">
           <img src={logoPreta} alt="Logo" width="110" />
           <div className="header-nav-user">
-            <Link to="/Usuario">
+            <Link to="/app_dmetal_dev/Usuario">
               <HiOutlineUserCircle size={34} />
             </Link>
           </div>
