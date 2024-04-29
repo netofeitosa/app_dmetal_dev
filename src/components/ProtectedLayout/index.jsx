@@ -6,7 +6,7 @@ export const ProtectedLayout = ({ children }) => {
   const auth = useAuth();
 
   if (!auth.token) {
-    return <Navigate to="/" />;
+    return <Navigate to="/app_dmetal_dev/" />;
   }
 
   return children;
