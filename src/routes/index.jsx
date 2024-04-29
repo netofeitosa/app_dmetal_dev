@@ -30,7 +30,7 @@ const AppRouter = () => {
             }
           ></Route>
           <Route
-            path="/aprovacoes"
+            path="/app_dmetal_dev/aprovacoes"
             element={
               <PrivateRoutes>
                 <Aprovacoes />
@@ -38,7 +38,7 @@ const AppRouter = () => {
             }
           ></Route>
           <Route
-            path="/relatorios"
+            path="/app_dmetal_dev/relatorios"
             element={
               <PrivateRoutes>
                 <Reports />
