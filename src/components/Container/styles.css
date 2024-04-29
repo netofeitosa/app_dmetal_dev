@@ -1,0 +1,10 @@
+.container {
+  flex: 1;
+  padding: 90px 30px 110px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: start;
+  min-height: 100vh;
+  background-color: var(--background);
+}

@@ -1,0 +1,77 @@
+.skeleton-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  padding: 15px;
+  background-color: #fff;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
+    rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  border-radius: 10px;
+}
+
+.skeleton-card-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+}
+
+.skeleton-card-div-div {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  justify-content: start;
+  width: 100%;
+}
+
+.skeleton-card-details {
+  display: flex;
+  flex-direction: column;
+  margin-left: 8px;
+}
+
+.skeleton-card-title {
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: auto;
+}
+
+.skeleton-card-description {
+  font-size: 12px;
+}
+
+/* .container-card-div-div-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+} */
+
+.skeleton-card-value {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skeleton-card-value span {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.skeleton-card-div-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #0000000c;
+}
+
+.skeleton-card-chevron {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-left: auto;
+}

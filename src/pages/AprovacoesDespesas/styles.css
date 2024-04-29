@@ -1,0 +1,27 @@
+.container-aprovacoes-despesas {
+  width: 100%;
+}
+
+.container-aprovacoes-despesas-descricao {
+  padding: 10px;
+  text-align: start;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
+    rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container-aprovacoes-despesas-descricao span {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.container-aprovacoes-despesas-descricao svg {
+  color: var(--secondary);
+}

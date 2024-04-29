@@ -1,0 +1,89 @@
+.skeleton-table {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
+    rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+
+.skeleton-table-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: start;
+  width: 100%;
+  padding: 10px 10px;
+  gap: 10px;
+}
+
+.skeleton-table-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: start;
+  width: 100%;
+  padding: 10px 10px;
+  gap: 10px;
+}
+
+.skeleton-table-div-div {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  justify-content: start;
+  width: 100%;
+}
+
+.skeleton-table-details {
+  display: flex;
+  flex-direction: column;
+  margin-left: 8px;
+}
+
+/* .skeleton-table-title {
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: auto;
+} */
+
+.skeleton-table-description {
+  font-size: 12px;
+}
+
+/* .container-table-div-div-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+} */
+
+.skeleton-table-value {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skeleton-table-value span {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.skeleton-table-div-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #0000000c;
+}
+
+.skeleton-table-chevron {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-left: auto;
+}
