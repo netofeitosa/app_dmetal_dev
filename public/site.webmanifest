@@ -2,6 +2,7 @@
   "name": "App Dmetal Dev",
   "short_name": "AppDmetalDev",
   "start_url": "/app_dmetal_dev",
+  "lang": "pt-br",
   "icons": [
     {
       "src": "/app_dmetal_dev/android-chrome-192x192.png",
