@@ -1,13 +1,13 @@
-import { BrowserRouter, HashRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./context/AuthProvider";
 import AppRouter from "./routes";
 
 function App() {
   return (
     <AuthProvider>
-      <HashRouter>
+      <BrowserRouter>
         <AppRouter />
-      </HashRouter>
+      </BrowserRouter>
     </AuthProvider>
   );
 }
