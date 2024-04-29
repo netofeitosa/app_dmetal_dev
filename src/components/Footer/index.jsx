@@ -28,7 +28,7 @@ const Footer = () => {
 
   const handleLogout = () => {
     auth.logout();
-    navigate("/");
+    navigate("/app_dmetal_dev");
   };
 
   return (
