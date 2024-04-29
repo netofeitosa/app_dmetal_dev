@@ -18,7 +18,7 @@ const AppRouter = () => {
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<Login />}></Route>
+        <Route path="/app_dmetal_dev" element={<Login />}></Route>
 
         <Route path="/" element={<PageBase />}>
           <Route
