@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/app_dmetal_dev/sw.js', { scope: '/app_dmetal_dev/' })})}
