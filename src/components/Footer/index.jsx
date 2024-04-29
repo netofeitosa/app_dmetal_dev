@@ -22,7 +22,7 @@ const Footer = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const pathname = location.pathname.replace("/app_dmetal_dev", "");
+    const pathname = location.pathname.replace("/", "");
     setPaginaAtiva(pathname);
   }, [location]);
 
@@ -35,7 +35,7 @@ const Footer = () => {
     <footer className="footer">
       <Link
         className={`footer-link ${paginaAtiva === "home" ? "active" : ""}`}
-        to={"/app_dmetal_dev/home"}
+        to={"/home"}
         //onClick={() => setPaginaAtiva("home")}
       >
         <div className="footer-icons">
@@ -53,7 +53,7 @@ const Footer = () => {
         className={`footer-link ${
           paginaAtiva === "aprovacoes" ? "active" : ""
         }`}
-        to={"/app_dmetal_dev/aprovacoes"}
+        to={"/aprovacoes"}
         //onClick={() => setPaginaAtiva("aprovacoes")}
       >
         <div className="footer-icons">
@@ -71,7 +71,7 @@ const Footer = () => {
         className={`footer-link ${
           paginaAtiva === "relatorios" ? "active" : ""
         }`}
-        to={"/app_dmetal_dev/relatorios"}
+        to={"/relatorios"}
         //onClick={() => setPaginaAtiva("relatorios")}
       >
         <div className="footer-icons">

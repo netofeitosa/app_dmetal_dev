@@ -18,7 +18,7 @@ const Login = () => {
 
   useEffect(() => {
     if (auth.token) {
-      navigate("/app_dmetal_dev/home");
+      navigate("/home");
     }
   }, [auth.token]);
 
@@ -26,7 +26,7 @@ const Login = () => {
     try {
       setButton(true);
       await auth.authenticate(user, password);
-      navigate("/app_dmetal_dev/home");
+      navigate("/home");
     } catch (error) {
       setButton(false);
       message.error("Usuário ou senha inválidos!");

@@ -35,7 +35,7 @@ const Aprovacoes = () => {
       <Card
         name="Despesas"
         details="Despesas de lojas"
-        link="/app_dmetal_dev/aprovacoes-despesas"
+        link="/aprovacoes-despesas"
         loading={removeLoading}
         value={!removeLoading ? <></> : <span>{dadosHome.despesas}</span>}
       ></Card>
