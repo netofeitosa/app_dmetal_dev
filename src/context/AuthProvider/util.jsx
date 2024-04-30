@@ -1,7 +1,7 @@
 import { Api } from "../../services/api";
 
 export function setUserLocalStorage(user) {
-  const expirationMs = 1 * 60 * 1000;
+  const expirationMs = 120 * 60 * 1000;
   const expirationDate = new Date().getTime() + expirationMs;
   user.tokenExpiration = expirationDate;
 
