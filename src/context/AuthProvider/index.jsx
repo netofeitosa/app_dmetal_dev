@@ -5,15 +5,15 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState();
-  const [data, setData] = useState();
-  const [loading, setLoading] = useState(true);
+  //const [data, setData] = useState();
+  //const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const user = getUserLocalStorage();
-    if (user) {
-      setUser(user);
+    const userLocal = getUserLocalStorage();
+    if (userLocal) {
+      setUser(userLocal);
     }
-    setLoading(false);
+    //setLoading(false);
   }, []);
 
   async function authenticate({ user, password }) {
@@ -38,8 +38,8 @@ export const AuthProvider = ({ children }) => {
     <AuthContext.Provider
       value={{
         ...user,
-        ...data,
-        loading,
+        //...data,
+        //loading,
         authenticate,
         logout,
       }}

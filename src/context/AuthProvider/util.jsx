@@ -1,9 +1,9 @@
 import { Api } from "../../services/api";
 
 export function setUserLocalStorage(user) {
-  const expirationMs = 5 * 60 * 1000;
+  const expirationMs = 1 * 60 * 1000;
   const expirationDate = new Date().getTime() + expirationMs;
-  user.expiration = expirationDate;
+  user.tokenExpiration = expirationDate;
 
   localStorage.setItem("@user", JSON.stringify(user));
 }

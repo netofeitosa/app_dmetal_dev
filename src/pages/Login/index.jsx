@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Form, Input, message } from "antd";
 import { useAuth } from "../../context/AuthProvider/useAuth";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { BiLogIn, BiLogInCircle } from "react-icons/bi";
 import { IoFingerPrint } from "react-icons/io5";
 

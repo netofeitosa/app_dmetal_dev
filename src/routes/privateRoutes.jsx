@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthProvider/useAuth";
 
 export const PrivateRoutes = ({ children }) => {
@@ -7,7 +7,15 @@ export const PrivateRoutes = ({ children }) => {
   const navigate = useNavigate();
 
   if (!auth.token) {
-    return navigate("/app_dmetal_dev");
+    navigate("/app_dmetal_dev");
+    return null;
+  }
+
+  const currentTime = new Date().getTime();
+  if (auth.tokenExpiration < currentTime) {
+    auth.logout();
+    navigate("/app_dmetal_dev");
+    return null;
   }
 
   return children;
