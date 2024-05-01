@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 const Reports = () => {
   return (
     <motion.div
+      className="container-reports"
       initial={{ opacity: 0, x: 200 }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: -200 }}

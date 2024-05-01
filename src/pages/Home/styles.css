@@ -1,12 +1,9 @@
 .container-home {
   flex: 1;
-  padding: 15px 35px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: start;
-  margin-top: 80px; /* altura do header + espaço extra */
-  margin-bottom: 80px; /* altura do footer + espaço extra */
-  width: 100vw;
-  gap: 25px;
+  width: 90%;
+  gap: 20px;
 }

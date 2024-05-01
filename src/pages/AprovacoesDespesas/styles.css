@@ -2,26 +2,76 @@
   width: 100%;
 }
 
-.container-aprovacoes-despesas-descricao {
-  padding: 10px;
-  text-align: start;
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
-    rgba(17, 17, 26, 0.05) 0px 8px 32px;
-  margin-top: 5px;
-  margin-bottom: 20px;
+.aprovacoes-cabecalho {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 10px 15px;
+  gap: 10px;
 }
 
-.container-aprovacoes-despesas-descricao span {
-  font-size: 13px;
-  font-weight: 600;
+.aprovacoes-cabecalho-texto {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+}
+
+.aprovacoes-cabecalho-texto span:nth-child(1) {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.aprovacoes-cabecalho-texto span:nth-child(2) {
+  font-size: 10px;
   color: var(--primary);
 }
 
-.container-aprovacoes-despesas-descricao svg {
-  color: var(--secondary);
+.aprovacoes-cabecalho-total {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
+
+.aprovacoes-cabecalho-total-total {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: var(--secondary);
+  padding: 5px 10px;
+  border-radius: 18%;
+}
+
+.aprovacoes-cabecalho-total-texto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+}
+
+/* .container-aprovacoes-despesas-descricao span {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.container-aprovacoes-despesas-descricao svg {
+  color: var(--text);
+}
+
+.container-aprovacoes-despesas-descricao div:nth-child(1) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.container-aprovacoes-despesas-descricao div:nth-child(2) {
+  background-color: var(--secondary);
+  border-radius: 18%;
+  padding: 5px 10px;
+} */

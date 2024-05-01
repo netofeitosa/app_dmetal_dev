@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Api } from "../../services/api";
-import "./styles.css";
 import TableAprovacoes from "../../components/TableAprovacoes";
 
-import { HiOutlineCurrencyDollar } from "react-icons/hi";
+import "./styles.css";
 
 import { motion } from "framer-motion";
+import SkeletonTable from "../../components/SkeletonTable";
 
 const AprovacoesDespesas = () => {
   const [despesas, setDespesas] = useState();
@@ -32,14 +32,27 @@ const AprovacoesDespesas = () => {
       exit={{ opacity: 0, x: -200 }}
       transition={{ duration: 0.1 }}
     >
-      <div className="container-aprovacoes-despesas-descricao">
-        <span>Despesas de cofre</span>
-        <HiOutlineCurrencyDollar size={26} />
-      </div>
-      <TableAprovacoes
-        loading={removeLoading}
-        value={!removeLoading ? <></> : despesas.despesas}
-      />
+      {!removeLoading ? (
+        <SkeletonTable />
+      ) : (
+        <>
+          <div className="aprovacoes-cabecalho">
+            <div className="aprovacoes-cabecalho-texto">
+              <span>Despesas de Lojas</span>
+              <span>Aprovação de despesas de lojas geradas pelo ERP</span>
+            </div>
+            <div className="aprovacoes-cabecalho-total">
+              <div className="aprovacoes-cabecalho-total-total">
+                <span>{despesas.despesas.length}</span>
+              </div>
+              <div className="aprovacoes-cabecalho-total-texto">
+                <span>Despesas</span>
+              </div>
+            </div>
+          </div>
+          <TableAprovacoes value={despesas.despesas} />
+        </>
+      )}
     </motion.div>
   );
 };
