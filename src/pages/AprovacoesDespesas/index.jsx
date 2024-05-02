@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Api } from "../../services/api";
+import { Spin, Flex } from "antd";
 import TableAprovacoes from "../../components/TableAprovacoes";
+import Accordion from "../../components/Accordion";
 
 import "./styles.css";
 
@@ -33,7 +35,10 @@ const AprovacoesDespesas = () => {
       transition={{ duration: 0.1 }}
     >
       {!removeLoading ? (
-        <SkeletonTable />
+        //<SkeletonTable />
+        <Flex style={{ minHeight: "50vh" }} justify={"center"} align={"center"}>
+          <Spin size="large" />
+        </Flex>
       ) : (
         <>
           <div className="aprovacoes-cabecalho">
@@ -50,7 +55,15 @@ const AprovacoesDespesas = () => {
               </div>
             </div>
           </div>
-          <TableAprovacoes value={despesas.despesas} />
+          <hr
+            style={{
+              border: "0.5px solid #d8d8d8",
+              marginBottom: "25px",
+              marginTop: "-5px",
+            }}
+          />
+          <Accordion value={despesas.despesas} />
+          {/* <TableAprovacoes value={despesas.despesas} /> */}
         </>
       )}
     </motion.div>

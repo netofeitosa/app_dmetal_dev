@@ -3,9 +3,14 @@
   font-size: 12px !important;
 }
 
-.ant-table-title {
+/* .ant-table-title {
   border-radius: 0px !important;
   background-color: #ffffff;
+} */
+
+.ant-table-expanded-row.ant-table-expanded-row-level-1 {
+  background-color: #ffffff !important;
+  border-top: 0px;
 }
 
 .ant-table-wrapper .ant-table-thead > tr > th {
@@ -25,4 +30,45 @@
 
 .ant-table-expand-icon-col {
   width: 40px !important;
+}
+
+/* .table-observacoes-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  padding: 5px 15px;
+  gap: 10px;
+} */
+
+.table-observacoes-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 0px 15px;
+}
+
+.table-observacoes-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.table-observacoes-loja {
+  display: flex;
+  flex-direction: column;
+}
+
+.table-observacoes-observacao {
+  display: flex;
+  flex-direction: column;
+}
+
+.table-observacoes-loja span:nth-child(1),
+.table-observacoes-observacao span:nth-child(1) {
+  font-weight: bold;
+}
+
+.table-observacoes-actions {
+  display: flex;
+  gap: 10px;
 }

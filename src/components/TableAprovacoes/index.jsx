@@ -1,7 +1,25 @@
 import React from "react";
-import { Table } from "antd";
+import { Table, Button, FloatButton, Pagination } from "antd";
+import {
+  DownloadOutlined,
+  CheckCircleOutlined,
+  CheckOutlined,
+  CloseCircleOutlined,
+  CloseOutlined,
+  FilePdfOutlined,
+} from "@ant-design/icons";
 
-import { HiOutlineCurrencyDollar } from "react-icons/hi";
+import { FaRegFilePdf } from "react-icons/fa6";
+
+import {
+  HiCheckCircle,
+  HiOutlineCheckCircle,
+  HiBan,
+  HiOutlineReceiptTax,
+  HiOutlineDownload,
+  HiOutlinePaperClip,
+} from "react-icons/hi";
+
 import "./styles.css";
 
 const TableAprovacoes = (props) => {
@@ -34,32 +52,37 @@ const TableAprovacoes = (props) => {
   ];
 
   return (
-    <Table
-      columns={columns}
-      size="middle"
-      expandable={{
-        expandedRowRender: (record) => (
-          <p style={{ padding: 10 }}>{record.observacao}</p>
-        ),
-      }}
-      dataSource={props.value}
-      // title={() => (
-      //   <div className="table-aprovacoes-cabecalho">
-      //     <div className="table-aprovacoes-cabecalho-texto">
-      //       <span>Despesas de Lojas</span>
-      //       <span>Aprovação de despesas de lojas geradas pelo ERP</span>
-      //     </div>
-      //     <div className="table-aprovacoes-cabecalho-total">
-      //       <div className="table-aprovacoes-cabecalho-total-total">
-      //         <span>{props.value.length}</span>
-      //       </div>
-      //       <div className="table-aprovacoes-cabecalho-total-texto">
-      //         <span>Despesas</span>
-      //       </div>
-      //     </div>
-      //   </div>
-      // )}
-    />
+    <div style={{ height: "200vh" }}>
+      <Table
+        columns={columns}
+        size="middle"
+        expandable={{
+          expandedRowRender: (record) => (
+            <div className="table-observacoes-container">
+              <div className="table-observacoes-header">
+                <div className="table-observacoes-loja">
+                  <span>Loja</span>
+                  <span>{record.nome_fantasia}</span>
+                </div>
+                <div className="table-observacoes-actions">
+                  <HiOutlineCheckCircle size={32} />
+                  <HiBan size={32} />
+                  <FaRegFilePdf size={32} />
+                </div>
+              </div>
+              <div className="table-observacoes-observacao">
+                <span>Observação</span>
+                <span>{record.observacao}</span>
+              </div>
+            </div>
+          ),
+        }}
+        dataSource={props.value}
+        pagination={false}
+        bordered
+      />
+      <FloatButton.BackTop />
+    </div>
   );
 };
 
