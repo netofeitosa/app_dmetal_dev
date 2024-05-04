@@ -1,24 +1,12 @@
 import React from "react";
-import { Table, Button, FloatButton, Pagination } from "antd";
+import { Table, Button, Divider } from "antd";
 import {
-  DownloadOutlined,
-  CheckCircleOutlined,
   CheckOutlined,
-  CloseCircleOutlined,
+  CheckCircleOutlined,
   CloseOutlined,
-  FilePdfOutlined,
+  CloseCircleOutlined,
+  DownloadOutlined,
 } from "@ant-design/icons";
-
-import { FaRegFilePdf } from "react-icons/fa6";
-
-import {
-  HiCheckCircle,
-  HiOutlineCheckCircle,
-  HiBan,
-  HiOutlineReceiptTax,
-  HiOutlineDownload,
-  HiOutlinePaperClip,
-} from "react-icons/hi";
 
 import "./styles.css";
 
@@ -41,7 +29,7 @@ const TableAprovacoes = (props) => {
       title: "Data",
       dataIndex: "movimento",
       key: "movimento",
-      sorter: (a, b) => a.movimento - b.movimento,
+      //sorter: (a, b) => a.movimento - b.movimento,
     },
     {
       title: "Valor",
@@ -52,37 +40,90 @@ const TableAprovacoes = (props) => {
   ];
 
   return (
-    <div style={{ height: "200vh" }}>
-      <Table
-        columns={columns}
-        size="middle"
-        expandable={{
-          expandedRowRender: (record) => (
-            <div className="table-observacoes-container">
-              <div className="table-observacoes-header">
-                <div className="table-observacoes-loja">
-                  <span>Loja</span>
-                  <span>{record.nome_fantasia}</span>
-                </div>
-                <div className="table-observacoes-actions">
-                  <HiOutlineCheckCircle size={32} />
-                  <HiBan size={32} />
-                  <FaRegFilePdf size={32} />
-                </div>
+    <Table
+      columns={columns}
+      size="middle"
+      expandable={{
+        expandedRowRender: (record) => (
+          <div className="table-observacoes-container">
+            <Divider orientation="center" plain>
+              Detalhes
+            </Divider>
+            <div className="table-observacoes-loja">
+              <span>Nome Fantasia</span>
+              <span>{record.nome_fantasia}</span>
+            </div>
+            <div className="table-observacoes-observacao">
+              <span>Observação</span>
+              <span>{record.observacao}</span>
+            </div>
+            <Divider orientation="center" plain>
+              Ações
+            </Divider>
+            <div className="table-observacoes-actions">
+              <div className="table-observacoes-actions-aprovar">
+                <Button
+                  icon={<CheckCircleOutlined />}
+                  iconPosition="end"
+                  style={{
+                    borderColor: "green",
+                    color: "green",
+                    padding: "0px 10px",
+                  }}
+                >
+                  Aprovar
+                </Button>
+                <Button
+                  icon={<CloseCircleOutlined />}
+                  iconPosition="end"
+                  style={{
+                    padding: "0px 10px",
+                  }}
+                  danger
+                >
+                  Negar
+                </Button>
               </div>
-              <div className="table-observacoes-observacao">
-                <span>Observação</span>
-                <span>{record.observacao}</span>
+              <div>
+                <Button
+                  icon={<DownloadOutlined />}
+                  iconPosition="end"
+                  style={{
+                    borderColor: "gray",
+                    color: "gray",
+                    padding: "0px 10px",
+                  }}
+                >
+                  Recibo
+                </Button>
               </div>
             </div>
-          ),
-        }}
-        dataSource={props.value}
-        pagination={false}
-        bordered
-      />
-      <FloatButton.BackTop />
-    </div>
+          </div>
+        ),
+      }}
+      dataSource={props.value}
+      pagination={true}
+      // scroll={{
+      //   y: 480,
+      // }}
+      bordered
+      title={() => (
+        <div className="table-aprovacoes-cabecalho">
+          <div className="table-aprovacoes-cabecalho-texto">
+            <span>Despesas de Lojas</span>
+            <span>Aprovação de despesas de lojas geradas pelo ERP</span>
+          </div>
+          <div className="table-aprovacoes-cabecalho-total">
+            <div className="table-aprovacoes-cabecalho-total-total">
+              <span>{props.value.length}</span>
+            </div>
+            <div className="table-aprovacoes-cabecalho-total-texto">
+              <span>Despesas</span>
+            </div>
+          </div>
+        </div>
+      )}
+    />
   );
 };
 

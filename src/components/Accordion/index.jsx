@@ -45,7 +45,7 @@ const Accordion = (props) => {
       marginBottom: 12,
       background: token.colorBgContainer,
       borderRadius: token.borderRadiusLG,
-      //border: "none",
+      border: "none",
     },
   }));
 
@@ -54,9 +54,9 @@ const Accordion = (props) => {
       accordion
       bordered={false}
       //   defaultActiveKey={["1"]}
-      expandIcon={({ isActive }) => (
-        <CaretRightOutlined rotate={isActive ? 90 : 0} />
-      )}
+      // expandIcon={({ isActive }) => (
+      //   <CaretRightOutlined size={24} rotate={isActive ? 90 : 0} />
+      // )}
       //   style={{
       //     background: token.colorBgContainer,
       //   }}

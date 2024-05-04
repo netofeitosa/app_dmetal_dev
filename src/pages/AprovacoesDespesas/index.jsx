@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Api } from "../../services/api";
-import { Spin, Flex } from "antd";
+import { Spin, Flex, FloatButton } from "antd";
 import TableAprovacoes from "../../components/TableAprovacoes";
-import Accordion from "../../components/Accordion";
+import { motion } from "framer-motion";
 
 import "./styles.css";
 
-import { motion } from "framer-motion";
-import SkeletonTable from "../../components/SkeletonTable";
+import { HiSortDescending, HiOutlineSortDescending } from "react-icons/hi";
+import { FaSort } from "react-icons/fa6";
+import { TbArrowsSort } from "react-icons/tb";
 
 const AprovacoesDespesas = () => {
   const [despesas, setDespesas] = useState();
@@ -35,36 +36,25 @@ const AprovacoesDespesas = () => {
       transition={{ duration: 0.1 }}
     >
       {!removeLoading ? (
-        //<SkeletonTable />
         <Flex style={{ minHeight: "50vh" }} justify={"center"} align={"center"}>
           <Spin size="large" />
         </Flex>
       ) : (
-        <>
-          <div className="aprovacoes-cabecalho">
-            <div className="aprovacoes-cabecalho-texto">
-              <span>Despesas de Lojas</span>
-              <span>Aprovação de despesas de lojas geradas pelo ERP</span>
-            </div>
-            <div className="aprovacoes-cabecalho-total">
-              <div className="aprovacoes-cabecalho-total-total">
-                <span>{despesas.despesas.length}</span>
-              </div>
-              <div className="aprovacoes-cabecalho-total-texto">
-                <span>Despesas</span>
-              </div>
-            </div>
-          </div>
-          <hr
-            style={{
-              border: "0.5px solid #d8d8d8",
-              marginBottom: "25px",
-              marginTop: "-5px",
-            }}
-          />
-          <Accordion value={despesas.despesas} />
-          {/* <TableAprovacoes value={despesas.despesas} /> */}
-        </>
+        // <div className="aprovacoes-cabecalho">
+        //   <div className="aprovacoes-cabecalho-texto">
+        //     <span>Despesas de Lojas</span>
+        //     <span>Aprovação de despesas de lojas geradas pelo ERP</span>
+        //   </div>
+        //   <div className="aprovacoes-cabecalho-total">
+        //     <div className="aprovacoes-cabecalho-total-total">
+        //       <span>{despesas.despesas.length}</span>
+        //     </div>
+        //     <div className="aprovacoes-cabecalho-total-texto">
+        //       <span>Despesas</span>
+        //     </div>
+        //   </div>
+        // </div>
+        <TableAprovacoes value={despesas.despesas} />
       )}
     </motion.div>
   );
