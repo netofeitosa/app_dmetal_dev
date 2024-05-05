@@ -1,16 +1,18 @@
 import React from "react";
-import { Table, Button, Divider } from "antd";
+import { Api } from "../../services/api";
+import { Table, Button, Divider, message, Modal } from "antd";
 import {
-  CheckOutlined,
   CheckCircleOutlined,
-  CloseOutlined,
   CloseCircleOutlined,
   DownloadOutlined,
 } from "@ant-design/icons";
 
 import "./styles.css";
+import { useAuth } from "../../context/AuthProvider/useAuth";
 
 const TableAprovacoes = (props) => {
+  const auth = useAuth();
+
   const columns = [
     {
       title: "Despesa",
@@ -39,6 +41,39 @@ const TableAprovacoes = (props) => {
     },
   ];
 
+  const postDespesas = async (despesa, autorizado) => {
+    const data = {
+      registro: despesa,
+      cod_origem: 1,
+      origem: "DESPESAS_COFRES",
+      usuario: auth.login,
+      autorizado: autorizado,
+    };
+
+    message.config({
+      //top: "20%",
+      duration: 3,
+    });
+
+    try {
+      const response = await Api.post("/despesas", data);
+      message.success(response.data.message);
+    } catch (error) {
+      message.error(error.response.data.message);
+    }
+
+    setTimeout(() => {
+      window.location.reload();
+    }, 3500);
+  };
+
+  const getGed = (ged) => {
+    window.open(
+      "https://portal.dmetal.com.br/api/consumir-recibo.php?ged=" + ged,
+      "_blank"
+    );
+  };
+
   return (
     <Table
       columns={columns}
@@ -56,6 +91,7 @@ const TableAprovacoes = (props) => {
             <div className="table-observacoes-observacao">
               <span>Observação</span>
               <span>{record.observacao}</span>
+              <span>{record.ged}</span>
             </div>
             <Divider orientation="center" plain>
               Ações
@@ -70,6 +106,7 @@ const TableAprovacoes = (props) => {
                     color: "green",
                     padding: "0px 10px",
                   }}
+                  onClick={() => postDespesas(record.despesa, 1)}
                 >
                   Aprovar
                 </Button>
@@ -79,23 +116,44 @@ const TableAprovacoes = (props) => {
                   style={{
                     padding: "0px 10px",
                   }}
+                  onClick={() => postDespesas(record.despesa, 2)}
                   danger
                 >
                   Negar
                 </Button>
               </div>
               <div>
-                <Button
-                  icon={<DownloadOutlined />}
-                  iconPosition="end"
-                  style={{
-                    borderColor: "gray",
-                    color: "gray",
-                    padding: "0px 10px",
-                  }}
-                >
-                  Recibo
-                </Button>
+                {record.ged == 0 ? (
+                  <Button
+                    disabled
+                    icon={<DownloadOutlined />}
+                    iconPosition="end"
+                    style={{
+                      backgroundColor: "#ffffff",
+                      borderColor: "#dfdfdf",
+                      color: "#dfdfdf",
+                      padding: "0px 10px",
+                    }}
+                    onClick={() => getGed(record.ged)}
+                  >
+                    Recibo
+                  </Button>
+                ) : (
+                  <>
+                    <Button
+                      icon={<DownloadOutlined />}
+                      iconPosition="end"
+                      style={{
+                        borderColor: "gray",
+                        color: "gray",
+                        padding: "0px 10px",
+                      }}
+                      onClick={() => getGed(record.ged)}
+                    >
+                      Recibo
+                    </Button>
+                  </>
+                )}
               </div>
             </div>
           </div>

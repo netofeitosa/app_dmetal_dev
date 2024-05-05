@@ -65,12 +65,6 @@
   color: var(--text) !important;
 }
 
-.ant-message {
-  width: 95% !important;
-  z-index: 999999;
-  font-family: "Poppins", sans-serif !important;
-}
-
 .table-observacoes-container {
   display: flex;
   flex-direction: column;

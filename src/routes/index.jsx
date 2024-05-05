@@ -8,6 +8,7 @@ import Aprovacoes from "../pages/Aprovacoes";
 import Reports from "../pages/Reports";
 import User from "../pages/User";
 import AprovacoesDespesas from "../pages/AprovacoesDespesas";
+import AprovacoesDescontos from "../pages/AprovacoesDescontos";
 import PageBase from "../pages/PageBase";
 import PageBaseBack from "../pages/PageBaseBack";
 
@@ -67,6 +68,14 @@ const AppRouter = () => {
             element={
               <PrivateRoutes>
                 <AprovacoesDespesas />
+              </PrivateRoutes>
+            }
+          ></Route>
+          <Route
+            path="/app_dmetal_dev/Descontos"
+            element={
+              <PrivateRoutes>
+                <AprovacoesDescontos />
               </PrivateRoutes>
             }
           ></Route>
