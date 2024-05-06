@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import "./styles.css";
 
 import {
@@ -10,7 +11,6 @@ import {
   HiDocumentReport,
   HiOutlineDocumentReport,
   HiOutlineLogout,
-  HiLogout,
 } from "react-icons/hi";
 
 import { useAuth } from "../../context/AuthProvider/useAuth";
@@ -36,7 +36,6 @@ const Footer = () => {
       <Link
         className={`footer-link ${paginaAtiva === "home" ? "active" : ""}`}
         to={"/app_dmetal_dev/home"}
-        //onClick={() => setPaginaAtiva("home")}
       >
         <div className="footer-icons">
           {paginaAtiva === "home" ? (
@@ -54,7 +53,6 @@ const Footer = () => {
           paginaAtiva === "aprovacoes" ? "active" : ""
         }`}
         to={"/app_dmetal_dev/aprovacoes"}
-        //onClick={() => setPaginaAtiva("aprovacoes")}
       >
         <div className="footer-icons">
           {paginaAtiva === "aprovacoes" ? (
@@ -72,7 +70,6 @@ const Footer = () => {
           paginaAtiva === "relatorios" ? "active" : ""
         }`}
         to={"/app_dmetal_dev/relatorios"}
-        //onClick={() => setPaginaAtiva("relatorios")}
       >
         <div className="footer-icons">
           {paginaAtiva === "relatorios" ? (

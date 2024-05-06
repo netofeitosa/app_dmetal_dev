@@ -1,6 +1,6 @@
 import React from "react";
 import { Api } from "../../services/api";
-import { Table, Button, Divider, message, Modal } from "antd";
+import { Table, Button, Divider, message } from "antd";
 import {
   CheckCircleOutlined,
   CloseCircleOutlined,
