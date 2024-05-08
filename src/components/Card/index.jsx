@@ -3,12 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { HiChevronRight } from "react-icons/hi";
 import "./styles.css";
 import SkeletonCard from "../SkeletonCard";
+import { Flex, Spin } from "antd";
 
 const Card = (props) => {
   const navigate = useNavigate();
-  return !props.loading ? (
-    <SkeletonCard />
-  ) : (
+  return (
     <div className="container-card">
       <div className="container-card-div">
         <div className="container-card-div-div">

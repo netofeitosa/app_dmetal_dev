@@ -8,16 +8,18 @@ const HeaderBack = (props) => {
   const navigate = useNavigate();
   return (
     <header className="header-back">
-      <HiChevronLeft
-        style={{ color: "var(--accent)" }}
-        size={32}
-        onClick={() => [navigate(-1)]}
-      />
-      <span>{props.description}</span>
-      <HiOutlineHome
-        size={28}
-        onClick={() => [navigate("/app_dmetal_dev/home")]}
-      />
+      <div className="header-back-itens">
+        <HiChevronLeft
+          style={{ color: "var(--accent)" }}
+          size={28}
+          onClick={() => [navigate(-1)]}
+        />
+        <span>{props.description}</span>
+        <HiOutlineHome
+          size={28}
+          onClick={() => [navigate("/app_dmetal_dev/home")]}
+        />
+      </div>
     </header>
   );
 };

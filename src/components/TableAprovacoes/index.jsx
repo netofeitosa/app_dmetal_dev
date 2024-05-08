@@ -84,10 +84,17 @@ const TableAprovacoes = (props) => {
             <Divider orientation="center" plain>
               Detalhes
             </Divider>
-            <div className="table-observacoes-loja">
-              <span>Nome Fantasia</span>
-              <span>{record.nome_fantasia}</span>
+            <div className="table-observacoes-title">
+              <div className="table-observacoes-loja">
+                <span>Nome Fantasia</span>
+                <span>{record.nome_fantasia}</span>
+              </div>
+              <div className="table-observacoes-valor">
+                <span>Valor</span>
+                <span>{record.valor}</span>
+              </div>
             </div>
+
             <div className="table-observacoes-observacao">
               <span>Observação</span>
               <span>{record.observacao}</span>

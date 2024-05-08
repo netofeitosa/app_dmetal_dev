@@ -40,20 +40,6 @@ const AprovacoesDespesas = () => {
           <Spin size="large" />
         </Flex>
       ) : (
-        // <div className="aprovacoes-cabecalho">
-        //   <div className="aprovacoes-cabecalho-texto">
-        //     <span>Despesas de Lojas</span>
-        //     <span>Aprovação de despesas de lojas geradas pelo ERP</span>
-        //   </div>
-        //   <div className="aprovacoes-cabecalho-total">
-        //     <div className="aprovacoes-cabecalho-total-total">
-        //       <span>{despesas.despesas.length}</span>
-        //     </div>
-        //     <div className="aprovacoes-cabecalho-total-texto">
-        //       <span>Despesas</span>
-        //     </div>
-        //   </div>
-        // </div>
         <TableAprovacoes value={despesas.despesas} />
       )}
     </motion.div>
