@@ -38,7 +38,7 @@ const Aprovacoes = () => {
 
       {!removeLoading ? (
         <Flex style={{ minHeight: "50vh" }} justify={"center"} align={"center"}>
-          <Spin size="large" />
+          <Spin size="large" style={{ color: "#582183" }} />
         </Flex>
       ) : (
         <>

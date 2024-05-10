@@ -17,7 +17,7 @@ const AprovacoesDespesas = () => {
   useEffect(() => {
     const getDespesas = async () => {
       try {
-        const response = await Api.get("/despesas-pendentes");
+        const response = await Api.get("/despesas");
         setDespesas(response.data);
         setRemoveLoading(true);
       } catch (error) {

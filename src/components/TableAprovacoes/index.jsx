@@ -29,8 +29,8 @@ const TableAprovacoes = (props) => {
     },
     {
       title: "Data",
-      dataIndex: "movimento",
-      key: "movimento",
+      dataIndex: "data",
+      key: "data",
       //sorter: (a, b) => a.movimento - b.movimento,
     },
     {
@@ -64,7 +64,7 @@ const TableAprovacoes = (props) => {
 
     setTimeout(() => {
       window.location.reload();
-    }, 3500);
+    }, 3300);
   };
 
   const getGed = (ged) => {
@@ -77,7 +77,22 @@ const TableAprovacoes = (props) => {
   return (
     <Table
       columns={columns}
-      size="middle"
+      title={() => (
+        <div className="table-aprovacoes-cabecalho">
+          <div className="table-aprovacoes-cabecalho-texto">
+            <span>Despesas de Lojas</span>
+            <span>Aprovação de despesas de lojas geradas pelo ERP</span>
+          </div>
+          <div className="table-aprovacoes-cabecalho-total">
+            <div className="table-aprovacoes-cabecalho-total-total">
+              <span>{props.value.length}</span>
+            </div>
+            <div className="table-aprovacoes-cabecalho-total-texto">
+              <span>Despesas</span>
+            </div>
+          </div>
+        </div>
+      )}
       expandable={{
         expandedRowRender: (record) => (
           <div className="table-observacoes-container">
@@ -89,16 +104,15 @@ const TableAprovacoes = (props) => {
                 <span>Nome Fantasia</span>
                 <span>{record.nome_fantasia}</span>
               </div>
-              <div className="table-observacoes-valor">
-                <span>Valor</span>
-                <span>{record.valor}</span>
+              <div className="table-observacoes-movimento">
+                <span>Movimento</span>
+                <span>{record.movimento}</span>
               </div>
             </div>
 
             <div className="table-observacoes-observacao">
               <span>Observação</span>
               <span>{record.observacao}</span>
-              <span>{record.ged}</span>
             </div>
             <Divider orientation="center" plain>
               Ações
@@ -141,7 +155,7 @@ const TableAprovacoes = (props) => {
                       color: "#dfdfdf",
                       padding: "0px 10px",
                     }}
-                    onClick={() => getGed(record.ged)}
+                    //onClick={() => getGed(record.ged)}
                   >
                     Recibo
                   </Button>
@@ -168,26 +182,11 @@ const TableAprovacoes = (props) => {
       }}
       dataSource={props.value}
       pagination={true}
+      size="middle"
       // scroll={{
       //   y: 480,
       // }}
       bordered
-      title={() => (
-        <div className="table-aprovacoes-cabecalho">
-          <div className="table-aprovacoes-cabecalho-texto">
-            <span>Despesas de Lojas</span>
-            <span>Aprovação de despesas de lojas geradas pelo ERP</span>
-          </div>
-          <div className="table-aprovacoes-cabecalho-total">
-            <div className="table-aprovacoes-cabecalho-total-total">
-              <span>{props.value.length}</span>
-            </div>
-            <div className="table-aprovacoes-cabecalho-total-texto">
-              <span>Despesas</span>
-            </div>
-          </div>
-        </div>
-      )}
     />
   );
 };
