@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Api } from "../../services/api";
-import { Spin, Flex } from "antd";
+import Spinner from "../../components/Spinner";
 import TableAprovacoesDescontos from "../../components/TableAprovacoesDescontos";
 import { motion } from "framer-motion";
 
@@ -32,9 +32,7 @@ const AprovacoesDescontos = () => {
       transition={{ duration: 0.1 }}
     >
       {!removeLoading ? (
-        <Flex style={{ minHeight: "50vh" }} justify={"center"} align={"center"}>
-          <Spin size="large" />
-        </Flex>
+        <Spinner />
       ) : (
         <TableAprovacoesDescontos value={descontos.descontos} />
       )}

@@ -98,8 +98,8 @@ const Login = () => {
                   }}
                   loading
                 >
-                  <span style={{ fontSize: "18px" }}>
-                    <strong>Login</strong>
+                  <span style={{ fontSize: "18px", fontWeight: "600" }}>
+                    Login
                   </span>
                 </Button>
               ) : (
@@ -114,8 +114,8 @@ const Login = () => {
                     height: "50px",
                   }}
                 >
-                  <span style={{ fontSize: "18px" }}>
-                    <strong>Login</strong>
+                  <span style={{ fontSize: "18px", fontWeight: "600" }}>
+                    Login
                   </span>
                 </Button>
               )}

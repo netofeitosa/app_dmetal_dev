@@ -1,21 +1,20 @@
 import React from "react";
-import { Table, Button, Divider } from "antd";
-import {
-  CheckCircleOutlined,
-  CloseCircleOutlined,
-  DownloadOutlined,
-} from "@ant-design/icons";
+import { Table, Button, Divider, message } from "antd";
+import { CheckCircleOutlined, CloseCircleOutlined } from "@ant-design/icons";
 
 import "./styles.css";
+import { useAuth } from "../../context/AuthProvider/useAuth";
+import { Api } from "../../services/api";
 
 const TableAprovacoesDescontos = (props) => {
+  const auth = useAuth();
+
   const columns = [
     {
-      title: "Venda",
-      dataIndex: "venda",
-      key: "venda",
-      defaultSortOrder: "descend",
-      sorter: (a, b) => a.venda - b.venda,
+      title: "Prevenda",
+      dataIndex: "documento",
+      key: "documento",
+      sorter: (a, b) => a.documento - b.documento,
     },
     {
       title: "Valor",
@@ -25,75 +24,149 @@ const TableAprovacoesDescontos = (props) => {
     },
     {
       title: "%",
-      dataIndex: "%",
-      key: "%",
+      dataIndex: "desconto_perc",
+      key: "desconto_perc",
     },
     {
       title: "Liquido",
-      dataIndex: "liquido",
-      key: "liquido",
-      sorter: (a, b) => a.liquido - b.liquido,
+      dataIndex: "valor_liquido",
+      key: "valor_liquido",
+      sorter: (a, b) => a.valor_liquido - b.valor_liquido,
     },
   ];
+
+  const postDescontos = async (desconto, autorizado) => {
+    const data = {
+      registro: desconto,
+      cod_origem: 2,
+      origem: "DESCONTOS_LOJAS",
+      usuario: auth.login,
+      autorizado: autorizado,
+    };
+
+    message.config({
+      //top: "20%",
+      duration: 3,
+    });
+
+    try {
+      const response = await Api.post("/descontos", data);
+      message.success(response.data.message);
+    } catch (error) {
+      message.error(error.response.data.message);
+    }
+
+    setTimeout(() => {
+      window.location.reload();
+    }, 3300);
+  };
 
   return (
     <Table
       columns={columns}
       size="middle"
+      title={() => (
+        <div className="table-descontos-aprovacoes-cabecalho">
+          <div className="table-descontos-aprovacoes-cabecalho-texto">
+            <span>Desconto de Lojas</span>
+            <span>Aprovação de desconto em vendas de lojas</span>
+          </div>
+          <div className="table-descontos-aprovacoes-cabecalho-total">
+            <div className="table-descontos-aprovacoes-cabecalho-total-total">
+              <span>{props.value.length}</span>
+            </div>
+            <div className="table-descontos-aprovacoes-cabecalho-total-texto">
+              <span>Descontos</span>
+            </div>
+          </div>
+        </div>
+      )}
       expandable={{
         expandedRowRender: (record) => (
-          <div className="table-observacoes-container">
+          <div className="table-descontos-aprovacoes-detalhes">
             <Divider orientation="center" plain>
               Detalhes
             </Divider>
-            <div className="table-observacoes-loja">
-              <span>Nome Fantasia</span>
-              <span>{record.nome_fantasia}</span>
-            </div>
-            <div className="table-observacoes-observacao">
-              <span>Observação</span>
-              <span>{record.observacao}</span>
-            </div>
-            <Divider orientation="center" plain>
-              Ações
-            </Divider>
-            <div className="table-observacoes-actions">
-              <div className="table-observacoes-actions-aprovar">
-                <Button
-                  icon={<CheckCircleOutlined />}
-                  iconPosition="end"
-                  style={{
-                    borderColor: "green",
-                    color: "green",
-                    padding: "0px 10px",
-                  }}
-                >
-                  Aprovar
-                </Button>
-                <Button
-                  icon={<CloseCircleOutlined />}
-                  iconPosition="end"
-                  style={{
-                    padding: "0px 10px",
-                  }}
-                  danger
-                >
-                  Negar
-                </Button>
+            <div className="table-descontos-aprovacoes-cabecalho">
+              <div>
+                <span>Nome Fantasia</span>
+                <span>{record.nome_fantasia}</span>
               </div>
               <div>
-                <Button
-                  icon={<DownloadOutlined />}
-                  iconPosition="end"
-                  style={{
-                    borderColor: "gray",
-                    color: "gray",
-                    padding: "0px 10px",
-                  }}
-                >
-                  Recibo
-                </Button>
+                <span>Movimento</span>
+                <span>{record.data}</span>
               </div>
+            </div>
+            <Divider orientation="center"></Divider>
+            <div className="table-descontos-aprovacoes-cabecalho">
+              <div>
+                <span>Total Bruto</span>
+                <span>{record.total_bruto}</span>
+              </div>
+              <div>
+                <span>Desconto Comercial</span>
+                <span>{record.desconto_comercial}</span>
+              </div>
+            </div>
+            <Divider />
+            <div className="table-descontos-aprovacoes-cabecalho">
+              <div>
+                <span>Total Líquido</span>
+                <span>{record.valor}</span>
+              </div>
+              <div>
+                <span>Desconto Solicitado</span>
+                <span>{record.desconto}</span>
+              </div>
+            </div>
+            <Divider />
+            <div className="table-descontos-aprovacoes-cabecalho">
+              <div>
+                <span>Valor Líquido</span>
+                <span>{record.valor_liquido}</span>
+              </div>
+              <div>
+                <span>Desconto Total</span>
+                <span>{record.desconto_total}</span>
+              </div>
+            </div>
+            <Divider />
+            <div className="table-descontos-aprovacoes-cabecalho">
+              <div>
+                <span>Observação</span>
+                <span>{record.observacao}</span>
+              </div>
+            </div>
+            <Divider
+              orientation="center"
+              plain
+              style={{ paddingBottom: "8px" }}
+            >
+              Ações
+            </Divider>
+            <div className="table-descontos-aprovacoes-actions">
+              <Button
+                icon={<CheckCircleOutlined />}
+                iconPosition="end"
+                style={{
+                  borderColor: "green",
+                  color: "green",
+                }}
+                onClick={() => postDescontos(record.registro, 1)}
+              >
+                Aprovar
+              </Button>
+              <Button
+                icon={<CloseCircleOutlined />}
+                iconPosition="end"
+                style={{
+                  padding: "0px 10px",
+                }}
+                onClick={() => postDescontos(record.registro, 2)}
+                danger
+              >
+                Negar
+              </Button>
             </div>
           </div>
         ),
@@ -104,22 +177,6 @@ const TableAprovacoesDescontos = (props) => {
       //   y: 480,
       // }}
       bordered
-      title={() => (
-        <div className="table-aprovacoes-cabecalho">
-          <div className="table-aprovacoes-cabecalho-texto">
-            <span>Desconto de Lojas</span>
-            <span>Aprovação de desconto em vendas de lojas</span>
-          </div>
-          <div className="table-aprovacoes-cabecalho-total">
-            <div className="table-aprovacoes-cabecalho-total-total">
-              <span>{props.value.length}</span>
-            </div>
-            <div className="table-aprovacoes-cabecalho-total-texto">
-              <span>Descontos</span>
-            </div>
-          </div>
-        </div>
-      )}
     />
   );
 };

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Card from "../../components/Card";
+import Spinner from "../../components/Spinner";
 import { Api } from "../../services/api";
 
 import "./styles.css";
 
 import { motion } from "framer-motion";
-import { Flex, Spin } from "antd";
 
 const Aprovacoes = () => {
   const [dadosHome, setDadosHome] = useState();
@@ -14,7 +14,7 @@ const Aprovacoes = () => {
   useEffect(() => {
     const getHomeAprovacoes = async () => {
       try {
-        const response = await Api.get("/home");
+        const response = await Api.get("/aprovacoes");
         setDadosHome(response.data);
         setRemoveLoading(true);
       } catch (error) {
@@ -37,9 +37,7 @@ const Aprovacoes = () => {
       </div>
 
       {!removeLoading ? (
-        <Flex style={{ minHeight: "50vh" }} justify={"center"} align={"center"}>
-          <Spin size="large" style={{ color: "#582183" }} />
-        </Flex>
+        <Spinner />
       ) : (
         <>
           <Card

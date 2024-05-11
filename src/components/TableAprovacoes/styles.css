@@ -58,12 +58,12 @@
   font-family: "Poppins", sans-serif !important;
 }
 
-.ant-divider-horizontal.ant-divider-with-text {
+/* .ant-divider-horizontal.ant-divider-with-text {
   font-family: "Poppins", sans-serif !important;
   margin: 0px !important;
   font-size: 11px;
   color: var(--text) !important;
-}
+} */
 
 .ant-message {
   width: 95% !important;

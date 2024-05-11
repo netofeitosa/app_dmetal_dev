@@ -31,6 +31,14 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           colorPrimary: "#582183",
           algorithm: true,
         },
+        Divider: {
+          margin: 0,
+          marginLG: 0,
+          marginMD: 0,
+          algorithm: true,
+          fontSize: 11,
+          fontFamily: "Poppins",
+        },
       },
     }}
   >
