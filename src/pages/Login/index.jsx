@@ -3,7 +3,12 @@ import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Form, Input, message } from "antd";
 import { useAuth } from "../../context/AuthProvider/useAuth";
 import { useNavigate } from "react-router-dom";
-import { IoFingerPrint } from "react-icons/io5";
+import {
+  IoFingerPrint,
+  IoLogoInstagram,
+  IoLogoYoutube,
+  IoLogoWhatsapp,
+} from "react-icons/io5";
 
 import "./styles.css";
 import logoPreta from "../../assets/logoPreta.svg";
@@ -116,6 +121,28 @@ const Login = () => {
               )}
             </Form.Item>
           </Form>
+        </div>
+        <div className="container-login-social">
+          <div>
+            <a
+              href="https://www.instagram.com/dmetal"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <IoLogoInstagram size={22} />
+              <span>/dmetal</span>
+            </a>
+          </div>
+          <div>
+            <a
+              href="https://www.youtube.com/user/OficialDmetal"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <IoLogoYoutube size={22} />
+              <span>/OficialDmetal</span>
+            </a>
+          </div>
         </div>
       </div>
     </motion.div>

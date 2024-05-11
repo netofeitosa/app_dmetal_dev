@@ -95,7 +95,7 @@
   flex-direction: column;
 }
 
-.table-observacoes-valor {
+.table-observacoes-movimento {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -108,7 +108,7 @@
 }
 
 .table-observacoes-loja span:nth-child(1),
-.table-observacoes-valor span:nth-child(1),
+.table-observacoes-movimento span:nth-child(1),
 .table-observacoes-observacao span:nth-child(1) {
   font-weight: bold;
 }
