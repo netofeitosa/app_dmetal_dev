@@ -20,7 +20,7 @@ const TableAprovacoesDescontos = (props) => {
       title: "Valor",
       dataIndex: "valor",
       key: "valor",
-      sorter: (a, b) => a.valor - b.valor,
+      sorter: (a, b) => a.valor_2 - b.valor_2,
     },
     {
       title: "%",
@@ -31,7 +31,7 @@ const TableAprovacoesDescontos = (props) => {
       title: "Liquido",
       dataIndex: "valor_liquido",
       key: "valor_liquido",
-      sorter: (a, b) => a.valor_liquido - b.valor_liquido,
+      sorter: (a, b) => a.valor_liquido_2 - b.valor_liquido_2,
     },
   ];
 
@@ -66,18 +66,14 @@ const TableAprovacoesDescontos = (props) => {
       columns={columns}
       size="middle"
       title={() => (
-        <div className="table-descontos-aprovacoes-cabecalho">
-          <div className="table-descontos-aprovacoes-cabecalho-texto">
+        <div className="table-descontos-aprovacoes-title">
+          <div className="table-descontos-aprovacoes-title-texto">
             <span>Desconto de Lojas</span>
             <span>Aprovação de desconto em vendas de lojas</span>
           </div>
-          <div className="table-descontos-aprovacoes-cabecalho-total">
-            <div className="table-descontos-aprovacoes-cabecalho-total-total">
-              <span>{props.value.length}</span>
-            </div>
-            <div className="table-descontos-aprovacoes-cabecalho-total-texto">
-              <span>Descontos</span>
-            </div>
+          <div className="table-descontos-aprovacoes-title-total">
+            <span>{props.value.length}</span>
+            <span>Descontos</span>
           </div>
         </div>
       )}

@@ -10,7 +10,7 @@ import {
 import "./styles.css";
 import { useAuth } from "../../context/AuthProvider/useAuth";
 
-const TableAprovacoes = (props) => {
+const TableAprovacoesDespesas = (props) => {
   const auth = useAuth();
 
   const columns = [
@@ -31,13 +31,12 @@ const TableAprovacoes = (props) => {
       title: "Data",
       dataIndex: "data",
       key: "data",
-      //sorter: (a, b) => a.movimento - b.movimento,
     },
     {
       title: "Valor",
       dataIndex: "valor",
       key: "valor",
-      sorter: (a, b) => a.valor - b.valor,
+      sorter: (a, b) => a.valor_2 - b.valor_2,
     },
   ];
 
@@ -155,7 +154,6 @@ const TableAprovacoes = (props) => {
                       color: "#dfdfdf",
                       padding: "0px 10px",
                     }}
-                    //onClick={() => getGed(record.ged)}
                   >
                     Recibo
                   </Button>
@@ -191,4 +189,4 @@ const TableAprovacoes = (props) => {
   );
 };
 
-export default TableAprovacoes;
+export default TableAprovacoesDespesas;

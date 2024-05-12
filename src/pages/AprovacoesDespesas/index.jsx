@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Api } from "../../services/api";
 import { Spin, Flex, FloatButton } from "antd";
-import TableAprovacoes from "../../components/TableAprovacoes";
+import TableAprovacoesDespesas from "../../components/TableAprovacoesDespesas";
 import { motion } from "framer-motion";
 
 import "./styles.css";
@@ -40,7 +40,7 @@ const AprovacoesDespesas = () => {
           <Spin size="large" />
         </Flex>
       ) : (
-        <TableAprovacoes value={despesas.despesas} />
+        <TableAprovacoesDespesas value={despesas.despesas} />
       )}
     </motion.div>
   );
