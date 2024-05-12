@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./styles.css";
 
-import { HiOutlineHome, HiHome, HiChevronLeft } from "react-icons/hi";
+import { HiOutlineHome, HiChevronLeft } from "react-icons/hi";
 
 const HeaderBack = (props) => {
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ const HeaderBack = (props) => {
         <span>{props.description}</span>
         <HiOutlineHome
           size={28}
-          onClick={() => [navigate("/app_dmetal_dev/home")]}
+          onClick={() => [navigate("/app_dmetal_dev/aprovacoes")]}
         />
       </div>
     </header>

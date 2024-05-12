@@ -3,7 +3,6 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { PrivateRoutes } from "./privateRoutes";
 
 import Login from "../pages/Login";
-import Home from "../pages/Home";
 import Aprovacoes from "../pages/Aprovacoes";
 import Reports from "../pages/Reports";
 import User from "../pages/User";
@@ -22,14 +21,6 @@ const AppRouter = () => {
         <Route path="/app_dmetal_dev" element={<Login />}></Route>
 
         <Route path="/" element={<PageBase />}>
-          <Route
-            path="/app_dmetal_dev/home"
-            element={
-              <PrivateRoutes>
-                <Home />
-              </PrivateRoutes>
-            }
-          ></Route>
           <Route
             path="/app_dmetal_dev/aprovacoes"
             element={

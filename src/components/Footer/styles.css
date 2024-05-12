@@ -6,9 +6,9 @@
   bottom: 0;
   width: 100%;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center; */
 }
 
 .footer-link {
@@ -26,18 +26,10 @@
 
 .footer-icons span {
   margin-top: 0px;
-  font-size: 10px;
+  font-size: 9px;
+  font-weight: 400;
 }
 
 .footer-link.active .footer-icons {
   color: var(--primary);
 }
-
-/* .span-active {
-  font-weight: 600;
-} */
-
-/* .footer-link.active .footer-icons {
-  transform: scale(1.1);
-  transition: transform 0.4s ease;
-} */

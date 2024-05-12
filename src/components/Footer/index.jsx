@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
 import "./styles.css";
 
 import {
-  HiHome,
-  HiOutlineHome,
   HiThumbUp,
   HiOutlineThumbUp,
   HiDocumentReport,
@@ -14,6 +11,7 @@ import {
 } from "react-icons/hi";
 
 import { useAuth } from "../../context/AuthProvider/useAuth";
+import { Col, Row } from "antd";
 
 const Footer = () => {
   const [paginaAtiva, setPaginaAtiva] = useState("");
@@ -33,59 +31,53 @@ const Footer = () => {
 
   return (
     <footer className="footer">
-      <Link
-        className={`footer-link ${paginaAtiva === "home" ? "active" : ""}`}
-        to={"/app_dmetal_dev/home"}
-      >
-        <div className="footer-icons">
-          {paginaAtiva === "home" ? (
-            <HiHome size={30} />
-          ) : (
-            <HiOutlineHome size={30} />
-          )}
+      <Row style={{ width: "100%" }}>
+        <Col span={8}>
+          <Link
+            className={`footer-link ${
+              paginaAtiva === "aprovacoes" ? "active" : ""
+            }`}
+            to={"/app_dmetal_dev/aprovacoes"}
+          >
+            <div className="footer-icons">
+              {paginaAtiva === "aprovacoes" ? (
+                <HiThumbUp size={30} />
+              ) : (
+                <HiOutlineThumbUp size={30} style={{ strokeWidth: 1.5 }} />
+              )}
 
-          <span>Início</span>
-        </div>
-      </Link>
+              <span>Aprovações</span>
+            </div>
+          </Link>
+        </Col>
+        <Col span={8}>
+          <Link
+            className={`footer-link ${
+              paginaAtiva === "relatorios" ? "active" : ""
+            }`}
+            to={"/app_dmetal_dev/relatorios"}
+          >
+            <div className="footer-icons">
+              {paginaAtiva === "relatorios" ? (
+                <HiDocumentReport size={30} />
+              ) : (
+                <HiOutlineDocumentReport
+                  size={30}
+                  style={{ strokeWidth: 1.5 }}
+                />
+              )}
 
-      <Link
-        className={`footer-link ${
-          paginaAtiva === "aprovacoes" ? "active" : ""
-        }`}
-        to={"/app_dmetal_dev/aprovacoes"}
-      >
-        <div className="footer-icons">
-          {paginaAtiva === "aprovacoes" ? (
-            <HiThumbUp size={30} />
-          ) : (
-            <HiOutlineThumbUp size={30} />
-          )}
-
-          <span>Aprovações</span>
-        </div>
-      </Link>
-
-      <Link
-        className={`footer-link ${
-          paginaAtiva === "relatorios" ? "active" : ""
-        }`}
-        to={"/app_dmetal_dev/relatorios"}
-      >
-        <div className="footer-icons">
-          {paginaAtiva === "relatorios" ? (
-            <HiDocumentReport size={30} />
-          ) : (
-            <HiOutlineDocumentReport size={30} />
-          )}
-
-          <span>Relatórios</span>
-        </div>
-      </Link>
-
-      <div className="footer-icons" onClick={handleLogout}>
-        <HiOutlineLogout size={30} />
-        <span>Sair</span>
-      </div>
+              <span>Relatórios</span>
+            </div>
+          </Link>
+        </Col>
+        <Col span={8}>
+          <div className="footer-icons" onClick={handleLogout}>
+            <HiOutlineLogout size={30} style={{ strokeWidth: 1.5 }} />
+            <span>Sair</span>
+          </div>
+        </Col>
+      </Row>
     </footer>
   );
 };

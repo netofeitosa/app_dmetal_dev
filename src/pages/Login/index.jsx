@@ -22,7 +22,7 @@ const Login = () => {
 
   useEffect(() => {
     if (auth.token) {
-      navigate("/app_dmetal_dev/home");
+      navigate("/app_dmetal_dev/aprovacoes");
     }
   }, [auth.token]);
 
@@ -30,7 +30,7 @@ const Login = () => {
     try {
       setButton(true);
       await auth.authenticate(user, password);
-      navigate("/app_dmetal_dev/home");
+      navigate("/app_dmetal_dev/aprovacoes");
     } catch (error) {
       setButton(false);
       message.error("Usuário ou senha inválidos!");
@@ -67,7 +67,7 @@ const Login = () => {
             >
               <Input
                 size="large"
-                style={{ height: "45px" }}
+                style={{ height: "45px", fontSize: "14px" }}
                 prefix={<UserOutlined className="site-form-item-icon" />}
                 placeholder="Usuário"
               />
@@ -78,7 +78,7 @@ const Login = () => {
             >
               <Input.Password
                 size="large"
-                style={{ height: "45px" }}
+                style={{ height: "45px", fontSize: "14px" }}
                 prefix={<LockOutlined className="site-form-item-icon" />}
                 type="password"
                 placeholder="Senha"
@@ -98,7 +98,7 @@ const Login = () => {
                   }}
                   loading
                 >
-                  <span style={{ fontSize: "18px", fontWeight: "600" }}>
+                  <span style={{ fontSize: "16px", fontWeight: "600" }}>
                     Login
                   </span>
                 </Button>
@@ -114,7 +114,7 @@ const Login = () => {
                     height: "50px",
                   }}
                 >
-                  <span style={{ fontSize: "18px", fontWeight: "600" }}>
+                  <span style={{ fontSize: "16px", fontWeight: "600" }}>
                     Login
                   </span>
                 </Button>
