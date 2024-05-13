@@ -1,21 +1,36 @@
 .container-user {
   flex: 1;
   display: flex;
-  align-items: flex-start;
-  justify-content: start;
-  gap: 10px;
-  width: 90%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+  width: 85%;
 }
 
 .container-user-data {
   display: flex;
   flex-direction: column;
+  margin-top: 10px;
+  gap: 20px;
+  width: 100%;
 }
 
-.container-user-data span:nth-child(1) {
-  font-size: 16px;
-  font-weight: bold;
+.container-user-data div {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  padding: 5px 10px;
+  border-radius: 10px;
+  box-shadow: var(--boxShadow);
 }
-.container-user-data span:nth-child(2) {
+
+.container-user-data-span span:nth-child(1) {
+  font-size: 10px;
+  font-weight: 300;
+}
+
+.container-user-data-span span:nth-child(2) {
   font-size: 12px;
+  font-weight: 600;
 }

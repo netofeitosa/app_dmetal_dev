@@ -21,7 +21,7 @@ const HeaderBack = (props) => {
         <span>{props.description}</span>
         <HiOutlineHome
           size={28}
-          style={{ color: "var(--text)", strokeWidth: 1.4 }}
+          style={{ color: "var(--text)", strokeWidth: 1.7 }}
           onClick={() => [navigate("/app_dmetal_dev/aprovacoes")]}
         />
       </div>
