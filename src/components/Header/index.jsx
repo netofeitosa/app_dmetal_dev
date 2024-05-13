@@ -9,10 +9,13 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header-nav">
-        <img src={logoPreta} alt="Logo" width="110" />
+        <img src={logoPreta} alt="Logo" width="95" />
         <div className="header-nav-user">
           <Link to="/app_dmetal_dev/Usuario">
-            <HiOutlineUserCircle size={32} />
+            <HiOutlineUserCircle
+              size={32}
+              style={{ color: "var(--text)", strokeWidth: 1.4 }}
+            />
           </Link>
         </div>
       </div>

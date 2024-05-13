@@ -87,7 +87,7 @@ const TableAprovacoesDespesas = (props) => {
               <span>{props.value.length}</span>
             </div>
             <div className="table-aprovacoes-cabecalho-total-texto">
-              <span>Despesas</span>
+              <span>Registros</span>
             </div>
           </div>
         </div>

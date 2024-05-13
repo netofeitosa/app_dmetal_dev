@@ -2,21 +2,26 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./styles.css";
 
-import { HiOutlineHome, HiChevronLeft } from "react-icons/hi";
+import {
+  HiOutlineHome,
+  HiChevronLeft,
+  HiOutlineChevronLeft,
+} from "react-icons/hi";
 
 const HeaderBack = (props) => {
   const navigate = useNavigate();
   return (
     <header className="header-back">
       <div className="header-back-itens">
-        <HiChevronLeft
-          style={{ color: "var(--accent)" }}
-          size={28}
+        <HiOutlineChevronLeft
+          style={{ color: "var(--text)", strokeWidth: 2.3 }}
+          size={24}
           onClick={() => [navigate(-1)]}
         />
         <span>{props.description}</span>
         <HiOutlineHome
           size={28}
+          style={{ color: "var(--text)", strokeWidth: 1.4 }}
           onClick={() => [navigate("/app_dmetal_dev/aprovacoes")]}
         />
       </div>

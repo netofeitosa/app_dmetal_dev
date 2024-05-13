@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
-import { Button, Form, Input, message } from "antd";
+import { Button, Divider, Form, Input, message } from "antd";
 import { useAuth } from "../../context/AuthProvider/useAuth";
 import { useNavigate } from "react-router-dom";
 import {
   IoFingerPrint,
   IoLogoInstagram,
   IoLogoYoutube,
-  IoLogoWhatsapp,
+  IoLockClosedOutline,
 } from "react-icons/io5";
 
 import "./styles.css";
 import logoPreta from "../../assets/logoPreta.svg";
+import wave from "../../assets/wave.svg";
 
 import { motion } from "framer-motion";
 
@@ -48,6 +49,10 @@ const Login = () => {
       <div className="container-login-logo">
         <img src={logoPreta} alt="Logo" width="180" />
       </div>
+      <div className="container-login-wave">
+        <img src={wave} alt="Logo" />
+      </div>
+
       <div className="container-login-form-container">
         <div className="container-login-form-text">
           <div className="container-login-form-text-text">
@@ -55,7 +60,7 @@ const Login = () => {
             <span>Entre com as suas credenciais</span>
           </div>
           <div className="container-login-form-text-icone">
-            <IoFingerPrint size={32} />
+            <IoLockClosedOutline size={32} />
           </div>
         </div>
         <div className="container-login-form">
@@ -63,7 +68,7 @@ const Login = () => {
             <Form.Item
               name="user"
               rules={[{ required: true, message: "Informe o seu usuário" }]}
-              style={{ width: "75vw" }}
+              style={{ width: "80vw" }}
             >
               <Input
                 size="large"
@@ -94,7 +99,7 @@ const Login = () => {
                   style={{
                     marginTop: "5px",
                     width: "100%",
-                    height: "50px",
+                    height: "45px",
                   }}
                   loading
                 >
@@ -111,7 +116,7 @@ const Login = () => {
                   style={{
                     marginTop: "5px",
                     width: "100%",
-                    height: "50px",
+                    height: "45px",
                   }}
                 >
                   <span style={{ fontSize: "16px", fontWeight: "600" }}>
@@ -122,6 +127,7 @@ const Login = () => {
             </Form.Item>
           </Form>
         </div>
+        <Divider />
         <div className="container-login-social">
           <div>
             <a
