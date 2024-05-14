@@ -1,9 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { HiChevronRight } from "react-icons/hi";
+import { HiChevronRight, HiOutlineChevronRight } from "react-icons/hi";
 import "./styles.css";
-import SkeletonCard from "../SkeletonCard";
-import { Flex, Spin } from "antd";
 
 const Card = (props) => {
   const navigate = useNavigate();
@@ -19,8 +17,9 @@ const Card = (props) => {
             <span className="container-card-description">{props.details}</span>
           </div>
           <div className="container-card-chevron">
-            <HiChevronRight
-              size={26}
+            <HiOutlineChevronRight
+              style={{ strokeWidth: 2.3 }}
+              size={22}
               onClick={() => [navigate("/app_dmetal_dev/" + props.name)]}
             />
           </div>

@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
     <defs>
-        <filter id="drop-shadow" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur in="SourceAlpha" stdDeviation="10"/> <!-- Aumentei o desvio padrão para 8 para uma sombra mais difusa -->
-            <feOffset dx="0" dy="0" result="offsetblur"/> <!-- Deslocamento de 0 pixels na horizontal e vertical -->
-            <feFlood flood-color="rgba(17, 17, 26, 0.2)"/> <!-- Cor da sombra -->
+        <filter id="drop-shadow" width="140%" height="140%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="15"/>
+            <feOffset dx="0" dy="5" result="offsetblur"/>
+            <feFlood flood-color="rgba(17, 17, 26, 0.2)"/>
             <feComposite in2="offsetblur" operator="in"/>
             <feMerge>
                 <feMergeNode/>
@@ -14,7 +14,7 @@
     <path 
         fill="#f5f5f5" 
         fill-opacity="1" 
-        d="M0,256L60,261.3C120,267,240,277,360,266.7C480,256,600,224,720,186.7C840,149,960,107,1080,90.7C1200,75,1320,85,1380,90.7L1440,96L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"
+        d="M0,192L80,170.7C160,149,320,107,480,122.7C640,139,800,213,960,250.7C1120,288,1280,288,1360,288L1440,288L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"
         style="filter:url(#drop-shadow);">
     </path>
 </svg>

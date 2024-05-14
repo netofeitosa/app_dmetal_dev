@@ -15,7 +15,7 @@ const HeaderBack = (props) => {
       <div className="header-back-itens">
         <HiOutlineChevronLeft
           style={{ color: "var(--text)", strokeWidth: 2.3 }}
-          size={24}
+          size={22}
           onClick={() => [navigate(-1)]}
         />
         <span>{props.description}</span>

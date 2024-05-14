@@ -61,7 +61,7 @@ const Aprovacoes = () => {
             }
           ></Card>
           <Card
-            name="Saídas Avulsas"
+            name="Saidas"
             details="Saídas avulsas ERP"
             loading={removeLoading}
             value={!removeLoading ? <></> : <span>{dadosHome.saidas}</span>}

@@ -1,0 +1,163 @@
+.ant-table {
+  font-family: "Poppins", sans-serif !important;
+  font-size: 11px !important;
+}
+
+.ant-table-wrapper {
+  border-radius: 10px !important;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
+    rgba(17, 17, 26, 0.05) 0px 8px 32px;
+}
+
+.ant-table-title {
+  background-color: #ffffff;
+}
+
+.ant-table-wrapper tr.ant-table-expanded-row:hover > th,
+.ant-table-wrapper tr.ant-table-expanded-row > td {
+  background-color: #ffffff !important;
+}
+
+.ant-table-wrapper .ant-table-thead > tr > th {
+  background-color: var(--background);
+  border-radius: 0px !important;
+}
+
+.ant-table-wrapper .ant-table-thead th.ant-table-column-sort {
+  background-color: var(--background) !important;
+}
+
+.ant-table-wrapper .ant-table-thead th.ant-table-column-has-sorters:hover {
+  background-color: var(--background) !important;
+}
+
+.ant-table-pagination.ant-pagination {
+  padding: 20px 10px !important;
+  justify-content: center !important;
+  margin: 0px !important;
+  gap: 5px !important;
+  font-weight: 500;
+}
+
+.ant-table-expand-icon-col {
+  width: 40px !important;
+}
+
+.ant-btn-primary,
+.ant-btn-default {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif !important;
+}
+
+.table-saidas-aprovacoes-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 5px;
+  gap: 15px;
+}
+
+.table-saidas-aprovacoes-title-texto {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+}
+
+.table-saidas-aprovacoes-title-texto span:nth-child(1) {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.table-saidas-aprovacoes-title-texto span:nth-child(2) {
+  font-size: 10px;
+}
+
+.table-saidas-aprovacoes-title-total {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 10px;
+  background-color: var(--secondary);
+  border-radius: 8px;
+}
+
+.table-saidas-aprovacoes-title-total span:nth-child(1) {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.table-saidas-aprovacoes-title-total span:nth-child(2) {
+  font-size: 8px;
+}
+
+.table-saidas-aprovacoes-detalhes {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: -5px !important;
+  padding: 8px 10px 15px 10px;
+  border: 1px solid #eeeeee;
+  border-radius: 5px;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
+    rgba(17, 17, 26, 0.05) 0px 8px 32px;
+}
+
+.table-saidas-aprovacoes-cabecalho {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 5px 5px;
+  gap: 10px;
+}
+
+.table-saidas-aprovacoes-cabecalho div {
+  display: flex;
+  flex-direction: column;
+}
+
+.table-saidas-aprovacoes-cabecalho div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.table-saidas-aprovacoes-cabecalho span:nth-child(1) {
+  font-weight: bold;
+}
+
+.table-saidas-aprovacoes-actions {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 10px;
+  width: 100%;
+  padding: 0px 0px;
+}
+
+.table-saidas-aprovacoes-actions span {
+  font-size: 12px;
+}
+
+.table-saidas-aprovacoes-actions svg {
+  font-size: 14px;
+}
+
+/* .table-saidas-aprovacoes-cabecalho-total-total {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+} */
+
+.table-saidas-aprovacoes-cabecalho-total-texto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+}
