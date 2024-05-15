@@ -5,13 +5,13 @@ import "./styles.css";
 
 import {
   HiMiniChevronRight,
-  HiOutlineShoppingCart,
-  HiOutlineBuildingOffice2,
+  HiOutlineBuildingStorefront,
+  HiOutlineUsers,
 } from "react-icons/hi2";
 
 import { motion } from "framer-motion";
 
-const Reports = () => {
+const ReportsComercial = () => {
   const Navigate = useNavigate();
   return (
     <motion.div
@@ -21,22 +21,21 @@ const Reports = () => {
       exit={{ opacity: 0, x: -200 }}
       transition={{ duration: 0.1 }}
     >
-      <div className="container-reports-title">
-        <h2>Relatórios</h2>
-      </div>
-
       <div className="container-reports-detalhes">
         <div className="container-reports-linha">
           <div className="container-reports-col1">
-            <HiOutlineShoppingCart size={25} style={{ strokeWidth: 1.5 }} />
-            <span>Comercial</span>
+            <HiOutlineBuildingStorefront
+              size={25}
+              style={{ strokeWidth: 1.5 }}
+            />
+            <span>Lojas</span>
           </div>
 
           <div className="container-reports-col2">
             <HiMiniChevronRight
               size={24}
               style={{ color: "var(--chevron)" }}
-              onClick={() => [Navigate("/app_dmetal_dev/Comercial")]}
+              onClick={() => [Navigate(`/app_dmetal_dev/Comercial Lojas`)]}
             />
           </div>
         </div>
@@ -45,15 +44,15 @@ const Reports = () => {
         </div>
         <div className="container-reports-linha">
           <div className="container-reports-col1">
-            <HiOutlineBuildingOffice2 size={24} style={{ strokeWidth: 1.5 }} />
+            <HiOutlineUsers size={24} style={{ strokeWidth: 1.5 }} />
 
-            <span>Industrial</span>
+            <span>Representantes</span>
           </div>
           <div className="container-reports-col2">
             <HiMiniChevronRight
               size={24}
               style={{ color: "var(--chevron)" }}
-              onClick={() => [Navigate("/app_dmetal_dev/Industrial")]}
+              // onClick={() => [Navigate("/app_dmetal_dev/Descontos")]}
             />
           </div>
         </div>
@@ -62,4 +61,4 @@ const Reports = () => {
   );
 };
 
-export default Reports;
+export default ReportsComercial;

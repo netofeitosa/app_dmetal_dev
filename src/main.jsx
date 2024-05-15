@@ -14,10 +14,12 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         Button: {
           colorPrimary: "#582183",
           algorithm: true,
+          fontFamily: "Roboto",
         },
         Input: {
           colorPrimary: "#dddbff",
           algorithm: true,
+          fontFamily: "Roboto",
         },
         Spin: {
           colorPrimary: "#582183",
@@ -26,10 +28,13 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         Table: {
           colorPrimary: "#582183",
           algorithm: true,
+          fontFamily: "Roboto",
         },
         Pagination: {
           colorPrimary: "#582183",
           algorithm: true,
+          fontSize: 10,
+          fontFamily: "Roboto",
         },
         Divider: {
           margin: 0,
@@ -37,7 +42,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           marginMD: 0,
           algorithm: true,
           fontSize: 11,
-          fontFamily: "Poppins",
+          fontFamily: "Roboto",
         },
       },
     }}

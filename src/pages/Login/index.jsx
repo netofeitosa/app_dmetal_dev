@@ -60,7 +60,7 @@ const Login = () => {
             <span>Entre com as suas credenciais</span>
           </div>
           <div className="container-login-form-text-icone">
-            <IoLockClosedOutline size={32} />
+            <IoLockClosedOutline size={30} />
           </div>
         </div>
         <div className="container-login-form">

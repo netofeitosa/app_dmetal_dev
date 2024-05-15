@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { HiOutlineUserCircle, HiUserCircle } from "react-icons/hi2";
+import { HiOutlineUserCircle } from "react-icons/hi2";
 
 import logoPreta from "../../assets/logoPreta.svg";
 import "./styles.css";

@@ -10,6 +10,9 @@ import AprovacoesDespesas from "../pages/AprovacoesDespesas";
 import AprovacoesDescontos from "../pages/AprovacoesDescontos";
 import AprovacoesCancelamentos from "../pages/AprovacoesCancelamentos";
 import AprovacoesSaidas from "../pages/AprovacoesSaidas";
+import ReportsComercial from "../pages/ReportsComercial";
+import ReportsComercialLojas from "../pages/ReportsComercialLojas";
+import ReportsIndustrial from "../pages/ReportsIndustrial";
 import PageBase from "../pages/PageBase";
 import PageBaseBack from "../pages/PageBaseBack";
 
@@ -17,6 +20,9 @@ import { AnimatePresence } from "framer-motion";
 
 const AppRouter = () => {
   const location = useLocation();
+
+  const decodedPath = decodeURIComponent(location.pathname.split("/").pop());
+
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
@@ -40,14 +46,7 @@ const AppRouter = () => {
             }
           ></Route>
         </Route>
-        <Route
-          path="/"
-          element={
-            <PageBaseBack
-              description={location.pathname.replace("/app_dmetal_dev/", "")}
-            />
-          }
-        >
+        <Route path="/" element={<PageBaseBack description={decodedPath} />}>
           <Route
             path="/app_dmetal_dev/Usuario"
             element={
@@ -81,10 +80,34 @@ const AppRouter = () => {
             }
           ></Route>
           <Route
-            path="/app_dmetal_dev/Saidas"
+            path={`/app_dmetal_dev/Saídas Avulsas`}
             element={
               <PrivateRoutes>
                 <AprovacoesSaidas />
+              </PrivateRoutes>
+            }
+          ></Route>
+          <Route
+            path="/app_dmetal_dev/Comercial"
+            element={
+              <PrivateRoutes>
+                <ReportsComercial />
+              </PrivateRoutes>
+            }
+          ></Route>
+          <Route
+            path={`/app_dmetal_dev/Comercial Lojas`}
+            element={
+              <PrivateRoutes>
+                <ReportsComercialLojas />
+              </PrivateRoutes>
+            }
+          ></Route>
+          <Route
+            path="/app_dmetal_dev/Industrial"
+            element={
+              <PrivateRoutes>
+                <ReportsIndustrial />
               </PrivateRoutes>
             }
           ></Route>

@@ -38,7 +38,7 @@
 
 .container-login-form-text {
   display: flex;
-  align-items: center;
+  align-items: end;
   justify-content: space-between;
   padding-top: 0.5rem;
   padding-bottom: 1rem;
@@ -78,18 +78,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 40px;
+  gap: 50px;
   margin-top: 20px;
 }
 
 .container-login-social a {
   display: flex;
-  align-items: end;
+  align-items: center;
   justify-content: center;
   gap: 2px;
   text-decoration: none;
   color: var(--primary);
-  opacity: 0.7;
+  opacity: 0.5;
 }
 
 .container-login-social span {

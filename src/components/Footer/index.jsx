@@ -3,12 +3,12 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./styles.css";
 
 import {
-  HiThumbUp,
-  HiOutlineThumbUp,
-  HiDocumentReport,
-  HiOutlineDocumentReport,
-  HiOutlineLogout,
-} from "react-icons/hi";
+  HiHandThumbUp,
+  HiOutlineHandThumbUp,
+  HiOutlineChartBar,
+  HiChartBar,
+  HiOutlineArrowRightOnRectangle,
+} from "react-icons/hi2";
 
 import { useAuth } from "../../context/AuthProvider/useAuth";
 import { Col, Row } from "antd";
@@ -41,9 +41,9 @@ const Footer = () => {
           >
             <div className="footer-icons">
               {paginaAtiva === "aprovacoes" ? (
-                <HiThumbUp size={30} />
+                <HiHandThumbUp size={28} />
               ) : (
-                <HiOutlineThumbUp size={30} style={{ strokeWidth: 1.5 }} />
+                <HiOutlineHandThumbUp size={28} style={{ strokeWidth: 1.3 }} />
               )}
 
               <span>Aprovações</span>
@@ -59,12 +59,9 @@ const Footer = () => {
           >
             <div className="footer-icons">
               {paginaAtiva === "relatorios" ? (
-                <HiDocumentReport size={30} />
+                <HiChartBar size={28} />
               ) : (
-                <HiOutlineDocumentReport
-                  size={30}
-                  style={{ strokeWidth: 1.5 }}
-                />
+                <HiOutlineChartBar size={28} style={{ strokeWidth: 1.3 }} />
               )}
 
               <span>Relatórios</span>
@@ -73,7 +70,10 @@ const Footer = () => {
         </Col>
         <Col span={8}>
           <div className="footer-icons" onClick={handleLogout}>
-            <HiOutlineLogout size={30} style={{ strokeWidth: 1.5 }} />
+            <HiOutlineArrowRightOnRectangle
+              size={28}
+              style={{ strokeWidth: 1.3 }}
+            />
             <span>Sair</span>
           </div>
         </Col>
