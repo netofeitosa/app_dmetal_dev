@@ -1,7 +1,9 @@
 import React from "react";
 import { useAuth } from "../../context/AuthProvider/useAuth";
 import { UserOutlined, UserAddOutlined } from "@ant-design/icons";
-import { Avatar } from "antd";
+import { Avatar, Image } from "antd";
+
+import { TbUserEdit } from "react-icons/tb";
 
 import "./styles.css";
 
@@ -9,6 +11,7 @@ import { motion } from "framer-motion";
 
 const User = () => {
   const auth = useAuth();
+  console.log(auth.image);
   return (
     <motion.div
       className="container-user"
@@ -18,7 +21,15 @@ const User = () => {
       transition={{ duration: 0.1 }}
     >
       <div>
-        <Avatar size={75} icon={<UserAddOutlined />} />
+        {!auth.image ? (
+          <Avatar size={65} icon={<TbUserEdit />} />
+        ) : (
+          <img
+            src={auth.image}
+            width={100}
+            style={{ borderRadius: "50%", boxShadow: "var(--boxshadow)" }}
+          />
+        )}
       </div>
       <div className="container-user-data">
         <div className="container-user-data-span">

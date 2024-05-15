@@ -13,6 +13,7 @@ import AprovacoesSaidas from "../pages/AprovacoesSaidas";
 import ReportsComercial from "../pages/ReportsComercial";
 import ReportsComercialLojas from "../pages/ReportsComercialLojas";
 import ReportsIndustrial from "../pages/ReportsIndustrial";
+import ReportsComercialRepresentantes from "../pages/ReportsComercialRepresentantes";
 import PageBase from "../pages/PageBase";
 import PageBaseBack from "../pages/PageBaseBack";
 
@@ -48,7 +49,7 @@ const AppRouter = () => {
         </Route>
         <Route path="/" element={<PageBaseBack description={decodedPath} />}>
           <Route
-            path="/app_dmetal_dev/Usuario"
+            path="/app_dmetal_dev/Perfil"
             element={
               <PrivateRoutes>
                 <User />
@@ -100,6 +101,14 @@ const AppRouter = () => {
             element={
               <PrivateRoutes>
                 <ReportsComercialLojas />
+              </PrivateRoutes>
+            }
+          ></Route>
+          <Route
+            path={`/app_dmetal_dev/Comercial Representantes`}
+            element={
+              <PrivateRoutes>
+                <ReportsComercialRepresentantes />
               </PrivateRoutes>
             }
           ></Route>

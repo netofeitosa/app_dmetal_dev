@@ -1,18 +1,15 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import { Divider } from "antd";
 import "./styles.css";
 
 import {
   HiMiniChevronRight,
-  HiOutlineShoppingCart,
-  HiOutlineBuildingOffice2,
+  HiOutlinePresentationChartBar,
 } from "react-icons/hi2";
 
 import { motion } from "framer-motion";
 
-const Reports = () => {
-  const Navigate = useNavigate();
+const ReportsComercialRepresentantes = () => {
   return (
     <motion.div
       className="container-reports"
@@ -21,22 +18,18 @@ const Reports = () => {
       exit={{ opacity: 0, x: -200 }}
       transition={{ duration: 0.1 }}
     >
-      <div className="container-reports-title">
-        <span>Relatórios</span>
-      </div>
-
       <div className="container-reports-detalhes">
         <div className="container-reports-linha">
           <div className="container-reports-col1">
-            <HiOutlineShoppingCart size={25} style={{ strokeWidth: 1.5 }} />
-            <span>Comercial</span>
+            <HiOutlinePresentationChartBar size={25} />
+            <span>Dmetal</span>
           </div>
 
           <div className="container-reports-col2">
             <HiMiniChevronRight
               size={24}
               style={{ color: "var(--chevron)" }}
-              onClick={() => [Navigate("/app_dmetal_dev/Comercial")]}
+              // onClick={() => [Navigate("/app_dmetal_dev/Despesas")]}
             />
           </div>
         </div>
@@ -45,15 +38,32 @@ const Reports = () => {
         </div>
         <div className="container-reports-linha">
           <div className="container-reports-col1">
-            <HiOutlineBuildingOffice2 size={24} style={{ strokeWidth: 1.5 }} />
+            <HiOutlinePresentationChartBar size={24} />
 
-            <span>Industrial</span>
+            <span>Chica Fulô</span>
           </div>
           <div className="container-reports-col2">
             <HiMiniChevronRight
               size={24}
               style={{ color: "var(--chevron)" }}
-              onClick={() => [Navigate("/app_dmetal_dev/Industrial")]}
+              // onClick={() => [Navigate("/app_dmetal_dev/Descontos")]}
+            />
+          </div>
+        </div>
+        <div className="container-reports-divider">
+          <Divider />
+        </div>
+        <div className="container-reports-linha">
+          <div className="container-reports-col1">
+            <HiOutlinePresentationChartBar size={24} />
+
+            <span>Solicitação de Faturamento</span>
+          </div>
+          <div className="container-reports-col2">
+            <HiMiniChevronRight
+              size={24}
+              style={{ color: "var(--chevron)" }}
+              // onClick={() => [Navigate("/app_dmetal_dev/Descontos")]}
             />
           </div>
         </div>
@@ -62,4 +72,4 @@ const Reports = () => {
   );
 };
 
-export default Reports;
+export default ReportsComercialRepresentantes;

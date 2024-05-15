@@ -8,6 +8,8 @@ import {
   HiOutlineChartBar,
   HiChartBar,
   HiOutlineArrowRightOnRectangle,
+  HiOutlineChartBarSquare,
+  HiChartBarSquare,
 } from "react-icons/hi2";
 
 import { useAuth } from "../../context/AuthProvider/useAuth";
@@ -59,9 +61,12 @@ const Footer = () => {
           >
             <div className="footer-icons">
               {paginaAtiva === "relatorios" ? (
-                <HiChartBar size={28} />
+                <HiChartBarSquare size={28} />
               ) : (
-                <HiOutlineChartBar size={28} style={{ strokeWidth: 1.3 }} />
+                <HiOutlineChartBarSquare
+                  size={28}
+                  style={{ strokeWidth: 1.3 }}
+                />
               )}
 
               <span>Relatórios</span>

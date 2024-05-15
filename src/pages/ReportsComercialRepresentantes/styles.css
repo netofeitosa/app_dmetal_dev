@@ -13,12 +13,6 @@
   align-items: flex-start !important;
   justify-content: start !important;
   width: 100%;
-  margin-left: 5px;
-}
-
-.container-reports-title span {
-  font-size: 18px;
-  font-weight: 600;
 }
 
 .container-reports-detalhes {

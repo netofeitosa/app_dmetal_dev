@@ -44,7 +44,7 @@ const Aprovacoes = () => {
       transition={{ duration: 0.1 }}
     >
       <div className="container-aprovacoes-title">
-        <h2>Aprovações</h2>
+        <span>Aprovações</span>
       </div>
 
       {!removeLoading ? (

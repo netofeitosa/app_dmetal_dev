@@ -52,7 +52,9 @@ const ReportsComercial = () => {
             <HiMiniChevronRight
               size={24}
               style={{ color: "var(--chevron)" }}
-              // onClick={() => [Navigate("/app_dmetal_dev/Descontos")]}
+              onClick={() => [
+                Navigate(`/app_dmetal_dev/Comercial Representantes`),
+              ]}
             />
           </div>
         </div>

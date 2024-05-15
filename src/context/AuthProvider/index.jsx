@@ -5,15 +5,12 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState();
-  //const [data, setData] = useState();
-  //const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const userLocal = getUserLocalStorage();
     if (userLocal) {
       setUser(userLocal);
     }
-    //setLoading(false);
   }, []);
 
   async function authenticate({ user, password }) {
@@ -23,6 +20,7 @@ export const AuthProvider = ({ children }) => {
       token: response.token,
       login: response.login,
       nome: response.nome,
+      image: response.image,
     };
 
     setUser(payload);
@@ -38,8 +36,6 @@ export const AuthProvider = ({ children }) => {
     <AuthContext.Provider
       value={{
         ...user,
-        //...data,
-        //loading,
         authenticate,
         logout,
       }}
