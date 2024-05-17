@@ -1,10 +1,10 @@
 import React from "react";
+import { Api } from "../../services/api";
 import { Table, Button, Divider, message } from "antd";
 import { CheckCircleOutlined, CloseCircleOutlined } from "@ant-design/icons";
 
 import "./styles.css";
 import { useAuth } from "../../context/AuthProvider/useAuth";
-import { Api } from "../../services/api";
 
 const TableAprovacoesCancelamentos = (props) => {
   const auth = useAuth();
@@ -44,21 +44,19 @@ const TableAprovacoesCancelamentos = (props) => {
       autorizado: autorizado,
     };
 
-    message.config({
-      //top: "20%",
-      duration: 3,
-    });
-
     try {
+      message.loading({ content: "Enviando...", key: "loading" });
       const response = await Api.post("/cancelamentos", data);
-      message.success(response.data.message);
+      message.destroy("loading");
+      message.success(response.data.message, 2, () => {
+        props.getCancelamentos();
+      });
     } catch (error) {
-      message.error(error.response.data.message);
+      message.destroy("loading");
+      message.error(error.response.data.message, 2, () => {
+        props.getCancelamentos();
+      });
     }
-
-    setTimeout(() => {
-      window.location.reload();
-    }, 3300);
   };
 
   return (
@@ -69,7 +67,9 @@ const TableAprovacoesCancelamentos = (props) => {
         <div className="table-cancelamentos-aprovacoes-title">
           <div className="table-cancelamentos-aprovacoes-title-texto">
             <span>Cancelamento de Prevendas</span>
-            <span>Aprovação de prevendas realizadas pelas lojas</span>
+            <span>
+              Aprovação de cancelamento de prevenda realizada pelas lojas
+            </span>
           </div>
           <div className="table-cancelamentos-aprovacoes-title-total">
             <span>{props.value.length}</span>

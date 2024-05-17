@@ -72,7 +72,7 @@ const Login = () => {
             >
               <Input
                 size="large"
-                style={{ height: "45px", fontSize: "14px" }}
+                style={{ height: "45px" }}
                 prefix={<UserOutlined className="site-form-item-icon" />}
                 placeholder="Usuário"
               />
@@ -83,7 +83,7 @@ const Login = () => {
             >
               <Input.Password
                 size="large"
-                style={{ height: "45px", fontSize: "14px" }}
+                style={{ height: "45px" }}
                 prefix={<LockOutlined className="site-form-item-icon" />}
                 type="password"
                 placeholder="Senha"
@@ -103,7 +103,7 @@ const Login = () => {
                   }}
                   loading
                 >
-                  <span style={{ fontSize: "16px", fontWeight: "600" }}>
+                  <span style={{ fontSize: "18px", fontWeight: "600" }}>
                     Login
                   </span>
                 </Button>
@@ -119,7 +119,7 @@ const Login = () => {
                     height: "45px",
                   }}
                 >
-                  <span style={{ fontSize: "16px", fontWeight: "600" }}>
+                  <span style={{ fontSize: "18px", fontWeight: "600" }}>
                     Login
                   </span>
                 </Button>

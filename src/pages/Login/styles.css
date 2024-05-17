@@ -15,17 +15,17 @@
   justify-content: center;
   background-color: var(--background);
   width: 100%;
-  padding: 70px 0 15px 0;
+  padding: 70px 0 25px 0;
 }
 .container-login-wave {
   width: 100%;
-  margin-top: -1px;
+  margin-top: -5px;
 }
 
 .container-login-form-container {
   display: flex;
   flex-direction: column;
-  margin-top: -15px;
+  margin-top: -5px;
   padding: 20px;
 }
 
@@ -50,17 +50,18 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 5px;
 }
 
 .container-login-form-text-text span {
   color: var(--text);
 }
 .container-login-form-text-text span:nth-child(1) {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
 }
 .container-login-form-text-text span:nth-child(2) {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .container-login-form-text-icone {

@@ -67,7 +67,7 @@
 }
 
 .table-descontos-aprovacoes-title-texto span:nth-child(1) {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: bold;
 }
 
@@ -86,7 +86,7 @@
 }
 
 .table-descontos-aprovacoes-title-total span:nth-child(1) {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: bold;
 }
 

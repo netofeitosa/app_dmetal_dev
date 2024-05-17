@@ -10,16 +10,19 @@ const AprovacoesDescontos = () => {
   const [descontos, setDescontos] = useState();
   const [removeLoading, setRemoveLoading] = useState(false);
 
+  const getDescontos = async () => {
+    setRemoveLoading(false);
+    try {
+      const response = await Api.get("/descontos");
+      setDescontos(response.data);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setRemoveLoading(true);
+    }
+  };
+
   useEffect(() => {
-    const getDescontos = async () => {
-      try {
-        const response = await Api.get("/descontos");
-        setDescontos(response.data);
-        setRemoveLoading(true);
-      } catch (error) {
-        console.log(error);
-      }
-    };
     getDescontos();
   }, []);
 
@@ -34,7 +37,10 @@ const AprovacoesDescontos = () => {
       {!removeLoading ? (
         <Spinner />
       ) : (
-        <TableAprovacoesDescontos value={descontos.descontos} />
+        <TableAprovacoesDescontos
+          value={descontos.descontos}
+          getDescontos={getDescontos}
+        />
       )}
     </motion.div>
   );

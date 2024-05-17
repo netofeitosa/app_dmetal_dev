@@ -1,10 +1,10 @@
 import React from "react";
+import { Api } from "../../services/api";
 import { Table, Button, Divider, message } from "antd";
 import { CheckCircleOutlined, CloseCircleOutlined } from "@ant-design/icons";
 
 import "./styles.css";
 import { useAuth } from "../../context/AuthProvider/useAuth";
-import { Api } from "../../services/api";
 
 const TableAprovacoesDescontos = (props) => {
   const auth = useAuth();
@@ -44,21 +44,19 @@ const TableAprovacoesDescontos = (props) => {
       autorizado: autorizado,
     };
 
-    message.config({
-      //top: "20%",
-      duration: 3,
-    });
-
     try {
+      message.loading({ content: "Enviando...", key: "loading" });
       const response = await Api.post("/descontos", data);
-      message.success(response.data.message);
+      message.destroy("loading");
+      message.success(response.data.message, 2, () => {
+        props.getDescontos();
+      });
     } catch (error) {
-      message.error(error.response.data.message);
+      message.destroy("loading");
+      message.error(error.response.data.message, 2, () => {
+        props.getDescontos();
+      });
     }
-
-    setTimeout(() => {
-      window.location.reload();
-    }, 3300);
   };
 
   return (
@@ -69,7 +67,9 @@ const TableAprovacoesDescontos = (props) => {
         <div className="table-descontos-aprovacoes-title">
           <div className="table-descontos-aprovacoes-title-texto">
             <span>Desconto de Lojas</span>
-            <span>Aprovação de desconto em vendas de lojas</span>
+            <span>
+              Aprovação de desconto em prevenda solicitado pelas lojas
+            </span>
           </div>
           <div className="table-descontos-aprovacoes-title-total">
             <span>{props.value.length}</span>

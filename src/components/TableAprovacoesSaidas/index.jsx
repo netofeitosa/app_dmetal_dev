@@ -1,10 +1,10 @@
 import React from "react";
+import { Api } from "../../services/api";
 import { Table, Button, Divider, message } from "antd";
 import { CheckCircleOutlined, CloseCircleOutlined } from "@ant-design/icons";
 
 import "./styles.css";
 import { useAuth } from "../../context/AuthProvider/useAuth";
-import { Api } from "../../services/api";
 
 const TableAprovacoesSaidas = (props) => {
   const auth = useAuth();
@@ -39,21 +39,19 @@ const TableAprovacoesSaidas = (props) => {
       autorizado: autorizado,
     };
 
-    message.config({
-      //top: "20%",
-      duration: 2,
-    });
-
     try {
+      message.loading({ content: "Enviando...", key: "loading" });
       const response = await Api.post("/saidas-avulsas", data);
-      message.success(response.data.message);
+      message.destroy("loading");
+      message.success(response.data.message, 2, () => {
+        props.getSaidas();
+      });
     } catch (error) {
-      message.error(error.response.data.message);
+      message.destroy("loading");
+      message.error(error.response.data.message, 2, () => {
+        props.getSaidas();
+      });
     }
-
-    setTimeout(() => {
-      window.location.reload();
-    }, 2200);
   };
 
   return (

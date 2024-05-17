@@ -44,6 +44,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           fontSize: 11,
           fontFamily: "Roboto",
         },
+        Message: {
+          fontFamily: "Roboto",
+        },
       },
     }}
   >

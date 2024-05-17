@@ -49,21 +49,24 @@ const TableAprovacoesDespesas = (props) => {
       autorizado: autorizado,
     };
 
-    message.config({
-      //top: "20%",
-      duration: 3,
-    });
+    // message.config({
+    //   //top: "20%",
+    //   duration: 3,
+    // });
 
     try {
+      message.loading({ content: "Enviando...", key: "loading" });
       const response = await Api.post("/despesas", data);
-      message.success(response.data.message);
+      message.destroy("loading");
+      message.success(response.data.message, 2, () => {
+        props.getDespesas();
+      });
     } catch (error) {
-      message.error(error.response.data.message);
+      message.destroy("loading");
+      message.error(error.response.data.message, 2, () => {
+        props.getDespesas();
+      });
     }
-
-    setTimeout(() => {
-      window.location.reload();
-    }, 3300);
   };
 
   const getGed = (ged) => {

@@ -50,13 +50,13 @@
   width: 40px !important;
 }
 
-.ant-btn-primary,
+/* .ant-btn-primary,
 .ant-btn-default {
   display: flex !important;
   align-items: center;
   justify-content: center;
   font-family: "Poppins", sans-serif !important;
-}
+} */
 
 /* .ant-divider-horizontal.ant-divider-with-text {
   font-family: "Poppins", sans-serif !important;
@@ -66,9 +66,8 @@
 } */
 
 .ant-message {
-  width: 95% !important;
+  /* width: 95% !important; */
   z-index: 999999;
-  font-family: "Poppins", sans-serif !important;
 }
 
 .table-observacoes-container {
@@ -156,7 +155,7 @@
 }
 
 .table-aprovacoes-cabecalho-texto span:nth-child(1) {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: bold;
 }
 

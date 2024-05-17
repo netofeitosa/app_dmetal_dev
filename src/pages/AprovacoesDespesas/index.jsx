@@ -1,29 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { Api } from "../../services/api";
-import { Spin, Flex, FloatButton } from "antd";
+import Spinner from "../../components/Spinner";
 import TableAprovacoesDespesas from "../../components/TableAprovacoesDespesas";
 import { motion } from "framer-motion";
 
 import "./styles.css";
 
-import { HiSortDescending, HiOutlineSortDescending } from "react-icons/hi";
-import { FaSort } from "react-icons/fa6";
-import { TbArrowsSort } from "react-icons/tb";
-
 const AprovacoesDespesas = () => {
   const [despesas, setDespesas] = useState();
   const [removeLoading, setRemoveLoading] = useState(false);
 
+  const getDespesas = async () => {
+    setRemoveLoading(false);
+    try {
+      const response = await Api.get("/despesas");
+      setDespesas(response.data);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setRemoveLoading(true);
+    }
+  };
+
   useEffect(() => {
-    const getDespesas = async () => {
-      try {
-        const response = await Api.get("/despesas");
-        setDespesas(response.data);
-        setRemoveLoading(true);
-      } catch (error) {
-        console.log(error);
-      }
-    };
     getDespesas();
   }, []);
 
@@ -36,11 +35,12 @@ const AprovacoesDespesas = () => {
       transition={{ duration: 0.1 }}
     >
       {!removeLoading ? (
-        <Flex style={{ minHeight: "50vh" }} justify={"center"} align={"center"}>
-          <Spin size="large" />
-        </Flex>
+        <Spinner />
       ) : (
-        <TableAprovacoesDespesas value={despesas.despesas} />
+        <TableAprovacoesDespesas
+          value={despesas.despesas}
+          getDespesas={getDespesas}
+        />
       )}
     </motion.div>
   );

@@ -10,16 +10,19 @@ const AprovacoesSaidas = () => {
   const [saidas, setSaidas] = useState();
   const [removeLoading, setRemoveLoading] = useState(false);
 
+  const getSaidas = async () => {
+    setRemoveLoading(false);
+    try {
+      const response = await Api.get("/saidas-avulsas");
+      setSaidas(response.data);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setRemoveLoading(true);
+    }
+  };
+
   useEffect(() => {
-    const getSaidas = async () => {
-      try {
-        const response = await Api.get("/saidas-avulsas");
-        setSaidas(response.data);
-        setRemoveLoading(true);
-      } catch (error) {
-        console.log(error);
-      }
-    };
     getSaidas();
   }, []);
 
@@ -34,7 +37,7 @@ const AprovacoesSaidas = () => {
       {!removeLoading ? (
         <Spinner />
       ) : (
-        <TableAprovacoesSaidas value={saidas.saidas} />
+        <TableAprovacoesSaidas value={saidas.saidas} getSaidas={getSaidas} />
       )}
     </motion.div>
   );

@@ -1,17 +1,14 @@
 import React from "react";
 import { useAuth } from "../../context/AuthProvider/useAuth";
-import { UserOutlined, UserAddOutlined } from "@ant-design/icons";
-import { Avatar, Image } from "antd";
-
+import { Avatar } from "antd";
+import { motion } from "framer-motion";
 import { TbUserEdit } from "react-icons/tb";
 
 import "./styles.css";
 
-import { motion } from "framer-motion";
-
 const User = () => {
   const auth = useAuth();
-  console.log(auth.image);
+
   return (
     <motion.div
       className="container-user"
@@ -26,7 +23,7 @@ const User = () => {
         ) : (
           <img
             src={auth.image}
-            width={100}
+            width={120}
             style={{ borderRadius: "50%", boxShadow: "var(--boxshadow)" }}
           />
         )}

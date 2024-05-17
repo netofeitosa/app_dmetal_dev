@@ -10,16 +10,19 @@ const AprovacoesCancelamentos = () => {
   const [cancelamentos, setCancelamentos] = useState();
   const [removeLoading, setRemoveLoading] = useState(false);
 
+  const getCancelamentos = async () => {
+    setRemoveLoading(false);
+    try {
+      const response = await Api.get("/cancelamentos");
+      setCancelamentos(response.data);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setRemoveLoading(true);
+    }
+  };
+
   useEffect(() => {
-    const getCancelamentos = async () => {
-      try {
-        const response = await Api.get("/cancelamentos");
-        setCancelamentos(response.data);
-        setRemoveLoading(true);
-      } catch (error) {
-        console.log(error);
-      }
-    };
     getCancelamentos();
   }, []);
 
@@ -34,7 +37,10 @@ const AprovacoesCancelamentos = () => {
       {!removeLoading ? (
         <Spinner />
       ) : (
-        <TableAprovacoesCancelamentos value={cancelamentos.cancelamentos} />
+        <TableAprovacoesCancelamentos
+          value={cancelamentos.cancelamentos}
+          getCancelamentos={getCancelamentos}
+        />
       )}
     </motion.div>
   );
