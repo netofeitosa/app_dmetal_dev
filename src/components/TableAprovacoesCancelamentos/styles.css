@@ -1,7 +1,7 @@
-.ant-table {
+/* .ant-table {
   font-family: "Poppins", sans-serif !important;
   font-size: 11px !important;
-}
+} */
 
 .ant-table-wrapper {
   border-radius: 10px !important;
@@ -48,7 +48,7 @@
   display: flex !important;
   align-items: center;
   justify-content: center;
-  font-family: "Poppins", sans-serif !important;
+  /* font-family: "Poppins", sans-serif !important; */
 }
 
 .table-cancelamentos-aprovacoes-title {

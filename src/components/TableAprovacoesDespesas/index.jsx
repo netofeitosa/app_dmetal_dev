@@ -1,6 +1,6 @@
 import React from "react";
 import { Api } from "../../services/api";
-import { Table, Button, Divider, message } from "antd";
+import { Table, Button, Divider, message, Image } from "antd";
 import {
   CheckCircleOutlined,
   CloseCircleOutlined,
@@ -9,6 +9,7 @@ import {
 
 import "./styles.css";
 import { useAuth } from "../../context/AuthProvider/useAuth";
+import ImageAntd from "../ImageAntd";
 
 const TableAprovacoesDespesas = (props) => {
   const auth = useAuth();
