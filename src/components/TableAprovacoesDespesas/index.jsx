@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../contexts/Auth/AuthContext";
 import { Api } from "../../services/api";
-import { Table, Button, Divider, message, Image } from "antd";
+import { Table, Button, Divider, message } from "antd";
 import {
   CheckCircleOutlined,
   CloseCircleOutlined,
@@ -8,11 +9,12 @@ import {
 } from "@ant-design/icons";
 
 import "./styles.css";
-import { useAuth } from "../../context/AuthProvider/useAuth";
-import ImageAntd from "../ImageAntd";
 
 const TableAprovacoesDespesas = (props) => {
-  const auth = useAuth();
+  const auth = useContext(AuthContext);
+
+  const [messageApi, contextHolder] = message.useMessage();
+  const key = "updatable";
 
   const columns = [
     {
@@ -46,26 +48,32 @@ const TableAprovacoesDespesas = (props) => {
       registro: despesa,
       cod_origem: 1,
       origem: "DESPESAS_COFRES",
-      usuario: auth.login,
+      usuario: auth.user.login,
       autorizado: autorizado,
     };
 
-    // message.config({
-    //   //top: "20%",
-    //   duration: 3,
-    // });
+    messageApi.open({
+      key,
+      type: "loading",
+      content: "Aguarde...",
+    });
 
     try {
-      message.loading({ content: "Enviando...", key: "loading" });
       const response = await Api.post("/despesas", data);
-      message.destroy("loading");
-      message.success(response.data.message, 2, () => {
-        props.getDespesas();
+      messageApi.open({
+        key,
+        type: "success",
+        content: response.data.message,
+        duration: 2,
+        onClose: () => props.getDespesas(),
       });
     } catch (error) {
-      message.destroy("loading");
-      message.error(error.response.data.message, 2, () => {
-        props.getDespesas();
+      messageApi.open({
+        key,
+        type: "error",
+        content: error.response.data.message,
+        duration: 2,
+        onClose: () => props.getDespesas(),
       });
     }
   };
@@ -122,6 +130,7 @@ const TableAprovacoesDespesas = (props) => {
             </Divider>
             <div className="table-observacoes-actions">
               <div className="table-observacoes-actions-aprovar">
+                {contextHolder}
                 <Button
                   icon={<CheckCircleOutlined />}
                   iconPosition="end"

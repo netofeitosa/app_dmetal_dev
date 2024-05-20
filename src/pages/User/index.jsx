@@ -1,5 +1,5 @@
-import React from "react";
-import { useAuth } from "../../context/AuthProvider/useAuth";
+import React, { useContext } from "react";
+import { AuthContext } from "../../contexts/Auth/AuthContext";
 import { Avatar } from "antd";
 import { motion } from "framer-motion";
 import { TbUserEdit } from "react-icons/tb";
@@ -7,7 +7,7 @@ import { TbUserEdit } from "react-icons/tb";
 import "./styles.css";
 
 const User = () => {
-  const auth = useAuth();
+  const auth = useContext(AuthContext);
 
   return (
     <motion.div
@@ -18,11 +18,11 @@ const User = () => {
       transition={{ duration: 0.1 }}
     >
       <div>
-        {!auth.image ? (
+        {!auth.user?.image ? (
           <Avatar size={65} icon={<TbUserEdit />} />
         ) : (
           <img
-            src={auth.image}
+            src={auth.user?.image}
             width={120}
             style={{ borderRadius: "50%", boxShadow: "var(--boxshadow)" }}
           />
@@ -31,11 +31,11 @@ const User = () => {
       <div className="container-user-data">
         <div className="container-user-data-span">
           <span>Nome</span>
-          <span>{auth.nome}</span>
+          <span>{auth.user.nome}</span>
         </div>
         <div className="container-user-data-span">
           <span>Usuário</span>
-          <span>{auth.login}</span>
+          <span>{auth.user?.login}</span>
         </div>
       </div>
     </motion.div>

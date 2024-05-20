@@ -1,23 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../contexts/Auth/AuthContext";
+import { Col, Row } from "antd";
+
 import "./styles.css";
 
 import {
   HiHandThumbUp,
   HiOutlineHandThumbUp,
-  HiOutlineChartBar,
-  HiChartBar,
   HiOutlineArrowRightOnRectangle,
   HiOutlineChartBarSquare,
   HiChartBarSquare,
 } from "react-icons/hi2";
 
-import { useAuth } from "../../context/AuthProvider/useAuth";
-import { Col, Row } from "antd";
-
 const Footer = () => {
   const [paginaAtiva, setPaginaAtiva] = useState("");
-  const auth = useAuth();
+  const auth = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -27,7 +25,7 @@ const Footer = () => {
   }, [location]);
 
   const handleLogout = () => {
-    auth.logout();
+    auth.signout();
     navigate("/app_dmetal_dev");
   };
 

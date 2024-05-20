@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Api } from "../../services/api";
+import { AuthContext } from "../../contexts/Auth/AuthContext";
 import { Table, Button, Divider, message } from "antd";
 import { CheckCircleOutlined, CloseCircleOutlined } from "@ant-design/icons";
 
 import "./styles.css";
-import { useAuth } from "../../context/AuthProvider/useAuth";
 
 const TableAprovacoesSaidas = (props) => {
-  const auth = useAuth();
+  const auth = useContext(AuthContext);
+
+  const [messageApi, contextHolder] = message.useMessage();
+  const key = "updatable";
 
   const columns = [
     {
@@ -35,21 +38,32 @@ const TableAprovacoesSaidas = (props) => {
       registro: saida,
       cod_origem: 4,
       origem: "SAIDAS_AVULSAS",
-      usuario: auth.login,
+      usuario: auth.user.login,
       autorizado: autorizado,
     };
 
+    messageApi.open({
+      key,
+      type: "loading",
+      content: "Aguarde...",
+    });
+
     try {
-      message.loading({ content: "Enviando...", key: "loading" });
       const response = await Api.post("/saidas-avulsas", data);
-      message.destroy("loading");
-      message.success(response.data.message, 2, () => {
-        props.getSaidas();
+      messageApi.open({
+        key,
+        type: "success",
+        content: response.data.message,
+        duration: 2,
+        onClose: () => props.getSaidas(),
       });
     } catch (error) {
-      message.destroy("loading");
-      message.error(error.response.data.message, 2, () => {
-        props.getSaidas();
+      messageApi.open({
+        key,
+        type: "error",
+        content: error.response.data.message,
+        duration: 2,
+        onClose: () => props.getSaidas(),
       });
     }
   };
@@ -108,6 +122,7 @@ const TableAprovacoesSaidas = (props) => {
               Ações
             </Divider>
             <div className="table-saidas-aprovacoes-actions">
+              {contextHolder}
               <Button
                 icon={<CheckCircleOutlined />}
                 iconPosition="end"

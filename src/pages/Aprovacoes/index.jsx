@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
-// import Card from "../../components/Card";
-import Spinner from "../../components/Spinner";
-import { Api } from "../../services/api";
+import { useNavigate } from "react-router-dom";
 import { Divider } from "antd";
-
+import { motion } from "framer-motion";
 import {
   HiOutlineReceiptPercent,
   HiOutlineCurrencyDollar,
@@ -12,10 +10,9 @@ import {
   HiMiniChevronRight,
 } from "react-icons/hi2";
 
+import Spinner from "../../components/Spinner";
+import { Api } from "../../services/api";
 import "./styles.css";
-
-import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
 
 const Aprovacoes = () => {
   const [dadosHome, setDadosHome] = useState();
@@ -58,7 +55,7 @@ const Aprovacoes = () => {
             </div>
 
             <div className="container-aprovacoes-col2">
-              <span>{dadosHome.despesas}</span>
+              <span>{dadosHome?.despesas}</span>
               <HiMiniChevronRight
                 size={24}
                 style={{ color: "var(--chevron)" }}
@@ -76,7 +73,7 @@ const Aprovacoes = () => {
               <span>Desconto de Prevenda</span>
             </div>
             <div className="container-aprovacoes-col2">
-              <span>{dadosHome.descontos}</span>
+              <span>{dadosHome?.descontos}</span>
               <HiMiniChevronRight
                 size={24}
                 style={{ color: "var(--chevron)" }}
@@ -94,7 +91,7 @@ const Aprovacoes = () => {
               <span>Cancelamento de Prevenda</span>
             </div>
             <div className="container-aprovacoes-col2">
-              <span>{dadosHome.cancelamentos}</span>
+              <span>{dadosHome?.cancelamentos}</span>
               <HiMiniChevronRight
                 size={24}
                 style={{ color: "var(--chevron)" }}
@@ -115,7 +112,7 @@ const Aprovacoes = () => {
               <span>Saída Avulsas</span>
             </div>
             <div className="container-aprovacoes-col2">
-              <span>{dadosHome.saidas}</span>
+              <span>{dadosHome?.saidas}</span>
               <HiMiniChevronRight
                 size={24}
                 style={{ color: "var(--chevron)" }}
@@ -124,28 +121,6 @@ const Aprovacoes = () => {
             </div>
           </div>
         </div>
-        /* <>
-          <Card
-            name="Despesas"
-            details="Despesas de lojas"
-            value={dadosHome.despesas}
-          ></Card>
-          <Card
-            name="Descontos"
-            details="Desconto de prevendas"
-            value={dadosHome.descontos}
-          ></Card>
-          <Card
-            name="Cancelamentos"
-            details="Cancelamento de prevendas"
-            value={dadosHome.cancelamentos}
-          ></Card>
-          <Card
-            name="Saidas"
-            details="Saídas avulsas ERP"
-            value={dadosHome.saidas}
-          ></Card>
-        </>  */
       )}
     </motion.div>
   );

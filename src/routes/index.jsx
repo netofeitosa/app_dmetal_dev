@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
-import { PrivateRoutes } from "./privateRoutes";
+import { RequireAuth } from "../contexts/Auth/RequireAuth";
 
 import Login from "../pages/Login";
 import Aprovacoes from "../pages/Aprovacoes";
@@ -33,17 +33,17 @@ const AppRouter = () => {
           <Route
             path="/app_dmetal_dev/aprovacoes"
             element={
-              <PrivateRoutes>
+              <RequireAuth>
                 <Aprovacoes />
-              </PrivateRoutes>
+              </RequireAuth>
             }
           ></Route>
           <Route
             path="/app_dmetal_dev/relatorios"
             element={
-              <PrivateRoutes>
+              <RequireAuth>
                 <Reports />
-              </PrivateRoutes>
+              </RequireAuth>
             }
           ></Route>
         </Route>
@@ -51,73 +51,73 @@ const AppRouter = () => {
           <Route
             path="/app_dmetal_dev/Perfil"
             element={
-              <PrivateRoutes>
+              <RequireAuth>
                 <User />
-              </PrivateRoutes>
+              </RequireAuth>
             }
           ></Route>
           <Route
             path="/app_dmetal_dev/Despesas"
             element={
-              <PrivateRoutes>
+              <RequireAuth>
                 <AprovacoesDespesas />
-              </PrivateRoutes>
+              </RequireAuth>
             }
           ></Route>
           <Route
             path="/app_dmetal_dev/Descontos"
             element={
-              <PrivateRoutes>
+              <RequireAuth>
                 <AprovacoesDescontos />
-              </PrivateRoutes>
+              </RequireAuth>
             }
           ></Route>
           <Route
             path="/app_dmetal_dev/Cancelamentos"
             element={
-              <PrivateRoutes>
+              <RequireAuth>
                 <AprovacoesCancelamentos />
-              </PrivateRoutes>
+              </RequireAuth>
             }
           ></Route>
           <Route
             path={`/app_dmetal_dev/Saídas Avulsas`}
             element={
-              <PrivateRoutes>
+              <RequireAuth>
                 <AprovacoesSaidas />
-              </PrivateRoutes>
+              </RequireAuth>
             }
           ></Route>
           <Route
             path="/app_dmetal_dev/Comercial"
             element={
-              <PrivateRoutes>
+              <RequireAuth>
                 <ReportsComercial />
-              </PrivateRoutes>
+              </RequireAuth>
             }
           ></Route>
           <Route
             path={`/app_dmetal_dev/Comercial Lojas`}
             element={
-              <PrivateRoutes>
+              <RequireAuth>
                 <ReportsComercialLojas />
-              </PrivateRoutes>
+              </RequireAuth>
             }
           ></Route>
           <Route
             path={`/app_dmetal_dev/Comercial Representantes`}
             element={
-              <PrivateRoutes>
+              <RequireAuth>
                 <ReportsComercialRepresentantes />
-              </PrivateRoutes>
+              </RequireAuth>
             }
           ></Route>
           <Route
             path="/app_dmetal_dev/Industrial"
             element={
-              <PrivateRoutes>
+              <RequireAuth>
                 <ReportsIndustrial />
-              </PrivateRoutes>
+              </RequireAuth>
             }
           ></Route>
         </Route>

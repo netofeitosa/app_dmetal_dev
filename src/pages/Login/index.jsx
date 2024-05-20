@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Divider, Form, Input, message } from "antd";
-import { useAuth } from "../../context/AuthProvider/useAuth";
+import { AuthContext } from "../../contexts/Auth/AuthContext";
 import { useNavigate } from "react-router-dom";
 import {
   IoFingerPrint,
@@ -17,20 +17,21 @@ import wave from "../../assets/wave.svg";
 import { motion } from "framer-motion";
 
 const Login = () => {
-  const auth = useAuth();
-  const navigate = useNavigate();
   const [button, setButton] = useState(false);
 
+  const auth = useContext(AuthContext);
+  const navigate = useNavigate();
+
   useEffect(() => {
-    if (auth.token) {
+    if (auth.user) {
       navigate("/app_dmetal_dev/aprovacoes");
     }
-  }, [auth.token]);
+  }, [auth.user]);
 
   async function onFinish(user, password) {
     try {
       setButton(true);
-      await auth.authenticate(user, password);
+      await auth.signin(user, password);
       navigate("/app_dmetal_dev/aprovacoes");
     } catch (error) {
       setButton(false);
