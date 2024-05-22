@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Api } from "../../services/api";
 import Spinner from "../../components/Spinner";
 import TableAprovacoesSaidas from "../../components/TableAprovacoesSaidas";
-import { motion } from "framer-motion";
-
-import "./styles.css";
+import { Container } from "./aprovacoessaidas.style";
 
 const AprovacoesSaidas = () => {
   const [saidas, setSaidas] = useState();
@@ -27,8 +25,7 @@ const AprovacoesSaidas = () => {
   }, []);
 
   return (
-    <motion.div
-      className="container-aprovacoes-cancelamentos"
+    <Container
       initial={{ opacity: 0, x: 200 }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: -200 }}
@@ -39,7 +36,7 @@ const AprovacoesSaidas = () => {
       ) : (
         <TableAprovacoesSaidas value={saidas.saidas} getSaidas={getSaidas} />
       )}
-    </motion.div>
+    </Container>
   );
 };
 

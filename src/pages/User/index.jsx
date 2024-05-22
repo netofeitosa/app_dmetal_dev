@@ -1,17 +1,19 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../contexts/Auth/AuthContext";
 import { Avatar } from "antd";
-import { motion } from "framer-motion";
 import { TbUserEdit } from "react-icons/tb";
 
-import "./styles.css";
+import {
+  ContainerUser,
+  ContainerUserData,
+  ContainerUserDataForm,
+} from "./user.style";
 
 const User = () => {
   const auth = useContext(AuthContext);
 
   return (
-    <motion.div
-      className="container-user"
+    <ContainerUser
       initial={{ opacity: 0, x: 200 }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: -200 }}
@@ -21,24 +23,20 @@ const User = () => {
         {!auth.user?.image ? (
           <Avatar size={65} icon={<TbUserEdit />} />
         ) : (
-          <img
-            src={auth.user?.image}
-            width={120}
-            style={{ borderRadius: "50%", boxShadow: "var(--boxshadow)" }}
-          />
+          <img src={auth.user?.image} />
         )}
       </div>
-      <div className="container-user-data">
-        <div className="container-user-data-span">
+      <ContainerUserData>
+        <ContainerUserDataForm>
           <span>Nome</span>
           <span>{auth.user.nome}</span>
-        </div>
-        <div className="container-user-data-span">
+        </ContainerUserDataForm>
+        <ContainerUserDataForm>
           <span>Usuário</span>
           <span>{auth.user?.login}</span>
-        </div>
-      </div>
-    </motion.div>
+        </ContainerUserDataForm>
+      </ContainerUserData>
+    </ContainerUser>
   );
 };
 

@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Api } from "../../services/api";
 import Spinner from "../../components/Spinner";
 import TableAprovacoesDespesas from "../../components/TableAprovacoesDespesas";
-import { motion } from "framer-motion";
-
-import "./styles.css";
+import { Container } from "./aprovacoesdespesas.style";
 
 const AprovacoesDespesas = () => {
   const [despesas, setDespesas] = useState();
@@ -27,8 +25,7 @@ const AprovacoesDespesas = () => {
   }, []);
 
   return (
-    <motion.div
-      className="container-aprovacoes-despesas"
+    <Container
       initial={{ opacity: 0, x: 200 }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: -200 }}
@@ -42,7 +39,7 @@ const AprovacoesDespesas = () => {
           getDespesas={getDespesas}
         />
       )}
-    </motion.div>
+    </Container>
   );
 };
 

@@ -3,8 +3,14 @@ import { Api } from "../../services/api";
 import { AuthContext } from "../../contexts/Auth/AuthContext";
 import { Table, Button, Divider, message } from "antd";
 import { CheckCircleOutlined, CloseCircleOutlined } from "@ant-design/icons";
-
-import "./styles.css";
+import {
+  ContainerObservacoes,
+  ContainerObservacoesActions,
+  ContainerObservacoesDescricao,
+  ContainerObservacoesDetalhes,
+  Header,
+  Title,
+} from "./tableaprovacoesdescontos.style";
 
 const TableAprovacoesDescontos = (props) => {
   const auth = useContext(AuthContext);
@@ -78,26 +84,22 @@ const TableAprovacoesDescontos = (props) => {
       columns={columns}
       size="middle"
       title={() => (
-        <div className="table-descontos-aprovacoes-title">
-          <div className="table-descontos-aprovacoes-title-texto">
-            <span>Desconto de Lojas</span>
+        <Header>
+          <Title>
+            <span>Desconto de Prevendas</span>
             <span>
               Aprovação de desconto em prevenda solicitado pelas lojas
             </span>
-          </div>
-          <div className="table-descontos-aprovacoes-title-total">
-            <span>{props.value.length}</span>
-            <span>Registros</span>
-          </div>
-        </div>
+          </Title>
+        </Header>
       )}
       expandable={{
         expandedRowRender: (record) => (
-          <div className="table-descontos-aprovacoes-detalhes">
+          <ContainerObservacoes>
             <Divider orientation="center" plain>
               Detalhes
             </Divider>
-            <div className="table-descontos-aprovacoes-cabecalho">
+            <ContainerObservacoesDetalhes>
               <div>
                 <span>Nome Fantasia</span>
                 <span>{record.nome_fantasia}</span>
@@ -106,9 +108,9 @@ const TableAprovacoesDescontos = (props) => {
                 <span>Movimento</span>
                 <span>{record.data}</span>
               </div>
-            </div>
+            </ContainerObservacoesDetalhes>
             <Divider orientation="center"></Divider>
-            <div className="table-descontos-aprovacoes-cabecalho">
+            <ContainerObservacoesDetalhes>
               <div>
                 <span>Total Bruto</span>
                 <span>{record.total_bruto}</span>
@@ -117,9 +119,9 @@ const TableAprovacoesDescontos = (props) => {
                 <span>Desconto Comercial</span>
                 <span>{record.desconto_comercial}</span>
               </div>
-            </div>
+            </ContainerObservacoesDetalhes>
             <Divider />
-            <div className="table-descontos-aprovacoes-cabecalho">
+            <ContainerObservacoesDetalhes>
               <div>
                 <span>Total Líquido</span>
                 <span>{record.valor}</span>
@@ -128,9 +130,9 @@ const TableAprovacoesDescontos = (props) => {
                 <span>Desconto Solicitado</span>
                 <span>{record.desconto}</span>
               </div>
-            </div>
+            </ContainerObservacoesDetalhes>
             <Divider />
-            <div className="table-descontos-aprovacoes-cabecalho">
+            <ContainerObservacoesDetalhes>
               <div>
                 <span>Valor Líquido</span>
                 <span>{record.valor_liquido}</span>
@@ -139,14 +141,12 @@ const TableAprovacoesDescontos = (props) => {
                 <span>Desconto Total</span>
                 <span>{record.desconto_total}</span>
               </div>
-            </div>
+            </ContainerObservacoesDetalhes>
             <Divider />
-            <div className="table-descontos-aprovacoes-cabecalho">
-              <div>
-                <span>Observação</span>
-                <span>{record.observacao}</span>
-              </div>
-            </div>
+            <ContainerObservacoesDescricao>
+              <span>Observação</span>
+              <span>{record.observacao}</span>
+            </ContainerObservacoesDescricao>
             <Divider
               orientation="center"
               plain
@@ -154,7 +154,7 @@ const TableAprovacoesDescontos = (props) => {
             >
               Ações
             </Divider>
-            <div className="table-descontos-aprovacoes-actions">
+            <ContainerObservacoesActions>
               {contextHolder}
               <Button
                 icon={<CheckCircleOutlined />}
@@ -178,8 +178,8 @@ const TableAprovacoesDescontos = (props) => {
               >
                 Negar
               </Button>
-            </div>
-          </div>
+            </ContainerObservacoesActions>
+          </ContainerObservacoes>
         ),
       }}
       dataSource={props.value}

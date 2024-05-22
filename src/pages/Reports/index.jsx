@@ -1,7 +1,16 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Divider } from "antd";
-import "./styles.css";
+
+import {
+  Container,
+  Title,
+  Section,
+  SectionLine,
+  SectionCol1,
+  SectionCol2,
+  SectionDivider,
+} from "./reports.style";
 
 import {
   HiMiniChevronRight,
@@ -9,56 +18,50 @@ import {
   HiOutlineBuildingOffice2,
 } from "react-icons/hi2";
 
-import { motion } from "framer-motion";
-
 const Reports = () => {
   const Navigate = useNavigate();
   return (
-    <motion.div
-      className="container-reports"
+    <Container
       initial={{ opacity: 0, x: 200 }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: -200 }}
       transition={{ duration: 0.1 }}
     >
-      <div className="container-reports-title">
+      <Title>
         <span>Relatórios</span>
-      </div>
+      </Title>
 
-      <div className="container-reports-detalhes">
-        <div className="container-reports-linha">
-          <div className="container-reports-col1">
+      <Section>
+        <SectionLine>
+          <SectionCol1>
             <HiOutlineShoppingCart size={25} style={{ strokeWidth: 1.5 }} />
             <span>Comercial</span>
-          </div>
+          </SectionCol1>
 
-          <div className="container-reports-col2">
+          <SectionCol2>
             <HiMiniChevronRight
               size={24}
-              style={{ color: "var(--chevron)" }}
               onClick={() => [Navigate("/app_dmetal_dev/Comercial")]}
             />
-          </div>
-        </div>
-        <div className="container-reports-divider">
+          </SectionCol2>
+        </SectionLine>
+        <SectionDivider>
           <Divider />
-        </div>
-        <div className="container-reports-linha">
-          <div className="container-reports-col1">
+        </SectionDivider>
+        <SectionLine>
+          <SectionCol1>
             <HiOutlineBuildingOffice2 size={24} style={{ strokeWidth: 1.5 }} />
-
             <span>Industrial</span>
-          </div>
-          <div className="container-reports-col2">
+          </SectionCol1>
+          <SectionCol2>
             <HiMiniChevronRight
               size={24}
-              style={{ color: "var(--chevron)" }}
               onClick={() => [Navigate("/app_dmetal_dev/Industrial")]}
             />
-          </div>
-        </div>
-      </div>
-    </motion.div>
+          </SectionCol2>
+        </SectionLine>
+      </Section>
+    </Container>
   );
 };
 

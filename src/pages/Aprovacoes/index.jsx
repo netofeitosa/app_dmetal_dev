@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Divider } from "antd";
-import { motion } from "framer-motion";
+
 import {
   HiOutlineReceiptPercent,
   HiOutlineCurrencyDollar,
@@ -12,7 +12,14 @@ import {
 
 import Spinner from "../../components/Spinner";
 import { Api } from "../../services/api";
-import "./styles.css";
+import {
+  ContainerAprovacoes,
+  ContainerAprovacoesChevron,
+  ContainerAprovacoesDetalhes,
+  ContainerAprovacoesDivider,
+  ContainerAprovacoesLinha,
+  ContainerAprovacoesTitle,
+} from "./aprovacoes.style";
 
 const Aprovacoes = () => {
   const [dadosHome, setDadosHome] = useState();
@@ -33,96 +40,97 @@ const Aprovacoes = () => {
   }, []);
 
   return (
-    <motion.div
-      className="container-aprovacoes"
+    <ContainerAprovacoes
       initial={{ opacity: 0, x: 200 }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: -200 }}
       transition={{ duration: 0.1 }}
     >
-      <div className="container-aprovacoes-title">
+      <ContainerAprovacoesTitle>
         <span>Aprovações</span>
-      </div>
+      </ContainerAprovacoesTitle>
 
       {!removeLoading ? (
         <Spinner />
       ) : (
-        <div className="container-aprovacoes-detalhes">
-          <div className="container-aprovacoes-linha">
-            <div className="container-aprovacoes-col1">
-              <HiOutlineCurrencyDollar size={25} style={{ strokeWidth: 1.5 }} />
+        <ContainerAprovacoesDetalhes>
+          <ContainerAprovacoesLinha>
+            <div>
+              <HiOutlineCurrencyDollar size={26} style={{ strokeWidth: 1.5 }} />
               <span>Despesa de Loja</span>
             </div>
 
-            <div className="container-aprovacoes-col2">
+            <div>
               <span>{dadosHome?.despesas}</span>
-              <HiMiniChevronRight
-                size={24}
-                style={{ color: "var(--chevron)" }}
-                onClick={() => [Navigate("/app_dmetal_dev/Despesas")]}
-              />
+              <ContainerAprovacoesChevron>
+                <HiMiniChevronRight
+                  size={24}
+                  onClick={() => [Navigate("/app_dmetal_dev/Despesas")]}
+                />
+              </ContainerAprovacoesChevron>
             </div>
-          </div>
-          <div className="container-aprovacoes-divider">
+          </ContainerAprovacoesLinha>
+          <ContainerAprovacoesDivider>
             <Divider />
-          </div>
-          <div className="container-aprovacoes-linha">
-            <div className="container-aprovacoes-col1">
-              <HiOutlineReceiptPercent size={24} style={{ strokeWidth: 1.5 }} />
+          </ContainerAprovacoesDivider>
+          <ContainerAprovacoesLinha>
+            <div>
+              <HiOutlineReceiptPercent size={26} style={{ strokeWidth: 1.5 }} />
 
               <span>Desconto de Prevenda</span>
             </div>
-            <div className="container-aprovacoes-col2">
+            <div>
               <span>{dadosHome?.descontos}</span>
-              <HiMiniChevronRight
-                size={24}
-                style={{ color: "var(--chevron)" }}
-                onClick={() => [Navigate("/app_dmetal_dev/Descontos")]}
-              />
+              <ContainerAprovacoesChevron>
+                <HiMiniChevronRight
+                  size={24}
+                  onClick={() => [Navigate("/app_dmetal_dev/Descontos")]}
+                />
+              </ContainerAprovacoesChevron>
             </div>
-          </div>
-          <div className="container-aprovacoes-divider">
+          </ContainerAprovacoesLinha>
+          <ContainerAprovacoesDivider>
             <Divider />
-          </div>
-          <div className="container-aprovacoes-linha">
-            <div className="container-aprovacoes-col1">
-              <HiOutlineXCircle size={24} style={{ strokeWidth: 1.5 }} />
-
+          </ContainerAprovacoesDivider>
+          <ContainerAprovacoesLinha>
+            <div>
+              <HiOutlineXCircle size={26} style={{ strokeWidth: 1.5 }} />
               <span>Cancelamento de Prevenda</span>
             </div>
-            <div className="container-aprovacoes-col2">
+            <div>
               <span>{dadosHome?.cancelamentos}</span>
-              <HiMiniChevronRight
-                size={24}
-                style={{ color: "var(--chevron)" }}
-                onClick={() => [Navigate("/app_dmetal_dev/Cancelamentos")]}
-              />
+              <ContainerAprovacoesChevron>
+                <HiMiniChevronRight
+                  size={24}
+                  onClick={() => [Navigate("/app_dmetal_dev/Cancelamentos")]}
+                />
+              </ContainerAprovacoesChevron>
             </div>
-          </div>
-          <div className="container-aprovacoes-divider">
+          </ContainerAprovacoesLinha>
+          <ContainerAprovacoesDivider>
             <Divider />
-          </div>
-          <div className="container-aprovacoes-linha">
-            <div className="container-aprovacoes-col1">
+          </ContainerAprovacoesDivider>
+          <ContainerAprovacoesLinha>
+            <div>
               <HiOutlineArrowsRightLeft
-                size={24}
+                size={26}
                 style={{ strokeWidth: 1.5 }}
               />
-
               <span>Saída Avulsas</span>
             </div>
-            <div className="container-aprovacoes-col2">
+            <div>
               <span>{dadosHome?.saidas}</span>
-              <HiMiniChevronRight
-                size={24}
-                style={{ color: "var(--chevron)" }}
-                onClick={() => [Navigate(`/app_dmetal_dev/Saídas Avulsas`)]}
-              />
+              <ContainerAprovacoesChevron>
+                <HiMiniChevronRight
+                  size={24}
+                  onClick={() => [Navigate(`/app_dmetal_dev/Saídas Avulsas`)]}
+                />
+              </ContainerAprovacoesChevron>
             </div>
-          </div>
-        </div>
+          </ContainerAprovacoesLinha>
+        </ContainerAprovacoesDetalhes>
       )}
-    </motion.div>
+    </ContainerAprovacoes>
   );
 };
 

@@ -3,8 +3,14 @@ import { Api } from "../../services/api";
 import { AuthContext } from "../../contexts/Auth/AuthContext";
 import { Table, Button, Divider, message } from "antd";
 import { CheckCircleOutlined, CloseCircleOutlined } from "@ant-design/icons";
-
-import "./styles.css";
+import {
+  ContainerObservacoes,
+  ContainerObservacoesActions,
+  ContainerObservacoesDescricao,
+  ContainerObservacoesDetalhes,
+  Header,
+  Title,
+} from "./tableaprovacoescancelamentos.style";
 
 const TableAprovacoesCancelamentos = (props) => {
   const auth = useContext(AuthContext);
@@ -78,26 +84,22 @@ const TableAprovacoesCancelamentos = (props) => {
       columns={columns}
       size="middle"
       title={() => (
-        <div className="table-cancelamentos-aprovacoes-title">
-          <div className="table-cancelamentos-aprovacoes-title-texto">
+        <Header>
+          <Title>
             <span>Cancelamento de Prevendas</span>
             <span>
               Aprovação de cancelamento de prevenda realizada pelas lojas
             </span>
-          </div>
-          <div className="table-cancelamentos-aprovacoes-title-total">
-            <span>{props.value.length}</span>
-            <span>Registros</span>
-          </div>
-        </div>
+          </Title>
+        </Header>
       )}
       expandable={{
         expandedRowRender: (record) => (
-          <div className="table-cancelamentos-aprovacoes-detalhes">
+          <ContainerObservacoes>
             <Divider orientation="center" plain>
               Detalhes
             </Divider>
-            <div className="table-cancelamentos-aprovacoes-cabecalho">
+            <ContainerObservacoesDetalhes>
               <div>
                 <span>Nome Fantasia</span>
                 <span>{record.nome_fantasia}</span>
@@ -106,15 +108,12 @@ const TableAprovacoesCancelamentos = (props) => {
                 <span>Valor</span>
                 <span>{record.valor}</span>
               </div>
-            </div>
+            </ContainerObservacoesDetalhes>
             <Divider orientation="center"></Divider>
-
-            <div className="table-cancelamentos-aprovacoes-cabecalho">
-              <div>
-                <span>Observação</span>
-                <span>{record.observacao}</span>
-              </div>
-            </div>
+            <ContainerObservacoesDescricao>
+              <span>Observação</span>
+              <span>{record.observacao}</span>
+            </ContainerObservacoesDescricao>
             <Divider
               orientation="center"
               plain
@@ -122,7 +121,7 @@ const TableAprovacoesCancelamentos = (props) => {
             >
               Ações
             </Divider>
-            <div className="table-cancelamentos-aprovacoes-actions">
+            <ContainerObservacoesActions>
               {contextHolder}
               <Button
                 icon={<CheckCircleOutlined />}
@@ -146,8 +145,8 @@ const TableAprovacoesCancelamentos = (props) => {
               >
                 Negar
               </Button>
-            </div>
-          </div>
+            </ContainerObservacoesActions>
+          </ContainerObservacoes>
         ),
       }}
       dataSource={props.value}

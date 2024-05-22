@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Divider, Form, Input, message } from "antd";
 import { AuthContext } from "../../contexts/Auth/AuthContext";
-import { useNavigate } from "react-router-dom";
+
 import {
   IoFingerPrint,
   IoLogoInstagram,
@@ -10,11 +11,18 @@ import {
   IoLockClosedOutline,
 } from "react-icons/io5";
 
-import "./styles.css";
 import logoPreta from "../../assets/logoPreta.svg";
 import wave from "../../assets/wave.svg";
 
-import { motion } from "framer-motion";
+import {
+  ContainerLogin,
+  ContainerLoginHeader,
+  ContainerLoginSection,
+  ContainerLoginSectionForm,
+  ContainerLoginSectionHeader,
+  ContainerLoginSectionSocial,
+  ContainerLoginWave,
+} from "./login.style";
 
 const Login = () => {
   const [button, setButton] = useState(false);
@@ -40,40 +48,38 @@ const Login = () => {
   }
 
   return (
-    <motion.div
-      className="container-login"
+    <ContainerLogin
       initial={{ opacity: 0, y: 100 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -100 }}
       transition={{ duration: 0.2 }}
     >
-      <div className="container-login-logo">
-        <img src={logoPreta} alt="Logo" width="180" />
-      </div>
-      <div className="container-login-wave">
-        <img src={wave} alt="Logo" />
-      </div>
+      <ContainerLoginHeader>
+        <img src={logoPreta} alt="Logo" width="200" />
+      </ContainerLoginHeader>
 
-      <div className="container-login-form-container">
-        <div className="container-login-form-text">
-          <div className="container-login-form-text-text">
+      <ContainerLoginWave>
+        <img src={wave} alt="wave" />
+      </ContainerLoginWave>
+
+      <ContainerLoginSection>
+        <ContainerLoginSectionHeader>
+          <div>
             <span>Login</span>
             <span>Entre com as suas credenciais</span>
           </div>
-          <div className="container-login-form-text-icone">
+          <div>
             <IoLockClosedOutline size={30} />
           </div>
-        </div>
-        <div className="container-login-form">
+        </ContainerLoginSectionHeader>
+        <ContainerLoginSectionForm>
           <Form name="normal_login" className="login-form" onFinish={onFinish}>
             <Form.Item
               name="user"
               rules={[{ required: true, message: "Informe o seu usuário" }]}
-              style={{ width: "80vw" }}
             >
               <Input
                 size="large"
-                style={{ height: "45px" }}
                 prefix={<UserOutlined className="site-form-item-icon" />}
                 placeholder="Usuário"
               />
@@ -84,7 +90,6 @@ const Login = () => {
             >
               <Input.Password
                 size="large"
-                style={{ height: "45px" }}
                 prefix={<LockOutlined className="site-form-item-icon" />}
                 type="password"
                 placeholder="Senha"
@@ -97,11 +102,6 @@ const Login = () => {
                   type="primary"
                   htmlType="submit"
                   className="login-form-button"
-                  style={{
-                    marginTop: "5px",
-                    width: "100%",
-                    height: "45px",
-                  }}
                   loading
                 >
                   <span style={{ fontSize: "18px", fontWeight: "600" }}>
@@ -114,11 +114,6 @@ const Login = () => {
                   type="primary"
                   htmlType="submit"
                   className="login-form-button"
-                  style={{
-                    marginTop: "5px",
-                    width: "100%",
-                    height: "45px",
-                  }}
                 >
                   <span style={{ fontSize: "18px", fontWeight: "600" }}>
                     Login
@@ -127,9 +122,9 @@ const Login = () => {
               )}
             </Form.Item>
           </Form>
-        </div>
+        </ContainerLoginSectionForm>
         <Divider />
-        <div className="container-login-social">
+        <ContainerLoginSectionSocial>
           <div>
             <a
               href="https://www.instagram.com/dmetal"
@@ -150,9 +145,9 @@ const Login = () => {
               <span>/OficialDmetal</span>
             </a>
           </div>
-        </div>
-      </div>
-    </motion.div>
+        </ContainerLoginSectionSocial>
+      </ContainerLoginSection>
+    </ContainerLogin>
   );
 };
 

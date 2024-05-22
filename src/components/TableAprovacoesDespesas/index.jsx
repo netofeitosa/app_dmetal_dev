@@ -8,7 +8,14 @@ import {
   DownloadOutlined,
 } from "@ant-design/icons";
 
-import "./styles.css";
+import {
+  ContainerObservacoes,
+  ContainerObservacoesActions,
+  ContainerObservacoesDescricao,
+  ContainerObservacoesDetalhes,
+  Header,
+  Title,
+} from "./tableaprovacoesdespesas.style";
 
 const TableAprovacoesDespesas = (props) => {
   const auth = useContext(AuthContext);
@@ -89,47 +96,39 @@ const TableAprovacoesDespesas = (props) => {
     <Table
       columns={columns}
       title={() => (
-        <div className="table-aprovacoes-cabecalho">
-          <div className="table-aprovacoes-cabecalho-texto">
+        <Header>
+          <Title>
             <span>Despesas de Lojas</span>
             <span>Aprovação de despesas de lojas geradas pelo ERP</span>
-          </div>
-          <div className="table-aprovacoes-cabecalho-total">
-            <div className="table-aprovacoes-cabecalho-total-total">
-              <span>{props.value.length}</span>
-            </div>
-            <div className="table-aprovacoes-cabecalho-total-texto">
-              <span>Registros</span>
-            </div>
-          </div>
-        </div>
+          </Title>
+        </Header>
       )}
       expandable={{
         expandedRowRender: (record) => (
-          <div className="table-observacoes-container">
+          <ContainerObservacoes>
             <Divider orientation="center" plain>
               Detalhes
             </Divider>
-            <div className="table-observacoes-title">
-              <div className="table-observacoes-loja">
+            <ContainerObservacoesDetalhes>
+              <div>
                 <span>Nome Fantasia</span>
                 <span>{record.nome_fantasia}</span>
               </div>
-              <div className="table-observacoes-movimento">
+              <div>
                 <span>Movimento</span>
                 <span>{record.movimento}</span>
               </div>
-            </div>
+            </ContainerObservacoesDetalhes>
 
-            <div className="table-observacoes-observacao">
+            <ContainerObservacoesDescricao>
               <span>Observação</span>
               <span>{record.observacao}</span>
-            </div>
+            </ContainerObservacoesDescricao>
             <Divider orientation="center" plain>
               Ações
             </Divider>
-            <div className="table-observacoes-actions">
-              <div className="table-observacoes-actions-aprovar">
+            <ContainerObservacoesActions>
+              <div>
                 {contextHolder}
                 <Button
                   icon={<CheckCircleOutlined />}
@@ -187,15 +186,15 @@ const TableAprovacoesDespesas = (props) => {
                   </>
                 )}
               </div>
-            </div>
-          </div>
+            </ContainerObservacoesActions>
+          </ContainerObservacoes>
         ),
       }}
       dataSource={props.value}
       pagination={true}
       size="middle"
       // scroll={{
-      //   y: 480,
+      //   y: 240,
       // }}
       bordered
     />

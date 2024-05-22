@@ -1,8 +1,8 @@
 import React from "react";
-import "./styles.css";
+import { ContainerHeader } from "./container.style";
 
 const Container = ({ children }) => {
-  return <section className="container">{children}</section>;
+  return <ContainerHeader>{children}</ContainerHeader>;
 };
 
 export default Container;
