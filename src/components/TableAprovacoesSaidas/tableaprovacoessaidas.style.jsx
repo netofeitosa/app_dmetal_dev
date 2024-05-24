@@ -29,8 +29,7 @@ export const ContainerObservacoes = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-top: -5px !important;
-  padding: 8px 10px 15px 10px;
+  padding: 15px;
   border: 1px solid #eeeeee;
   border-radius: 5px;
   box-shadow: ${({ Theme }) => theme.color.boxShadow};

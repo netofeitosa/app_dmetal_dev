@@ -39,7 +39,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           Pagination: {
             colorPrimary: "#582183",
             algorithm: true,
-            fontSize: 10,
+            fontSize: 11,
             fontFamily: "Roboto",
           },
           Divider: {

@@ -15,9 +15,11 @@ body {
   background-color: #f5f5f5;
 }
 
-.ant-table-wrapper {
-  border-radius: 10px;
-  box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+.ant-table, 
+.ant-table-wrapper, 
+.ant-table-title, 
+.ant-table-header{
+  border-radius: 0px !important;
 }
 
 .ant-table-wrapper tr.ant-table-expanded-row:hover > th,
@@ -27,17 +29,19 @@ body {
 
 .ant-table-wrapper .ant-table-thead > tr > th {
   background-color: #f5f5f5;
-  border-radius: 0px;
 }
 
 .ant-table-expand-icon-col {
   width: 40px;
 }
 
-.ant-table-pagination.ant-pagination {
-  padding: 5px 0px;
-  justify-content: center;
+.ant-table-pagination.ant-pagination{
+  margin: 0px !important;
+  padding: 20px 0px;
   gap: 5px;
+  justify-content: center;
+  background-color: #ffffff;
+  border-bottom: 1px solid #eeeeee;
 }
 
 `;

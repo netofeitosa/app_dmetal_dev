@@ -2,5 +2,5 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 export const Container = styled(motion.div)`
-  width: 90%;
+  width: 100%;
 `;

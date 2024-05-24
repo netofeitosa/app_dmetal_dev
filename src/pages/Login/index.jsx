@@ -26,7 +26,6 @@ import {
 
 const Login = () => {
   const [button, setButton] = useState(false);
-
   const auth = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -37,11 +36,9 @@ const Login = () => {
   }, [auth.user]);
 
   async function onFinish(user, password) {
-    try {
-      setButton(true);
-      await auth.signin(user, password);
-      navigate("/app_dmetal_dev/aprovacoes");
-    } catch (error) {
+    setButton(true);
+    const response = await auth.signin(user, password);
+    if (!response) {
       setButton(false);
       message.error("Usuário ou senha inválidos!");
     }
