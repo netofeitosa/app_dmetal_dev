@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { RequireAuth } from "../contexts/Auth/RequireAuth";
 
@@ -14,6 +14,7 @@ import ReportsComercial from "../pages/ReportsComercial";
 import ReportsComercialLojas from "../pages/ReportsComercialLojas";
 import ReportsIndustrial from "../pages/ReportsIndustrial";
 import ReportsComercialRepresentantes from "../pages/ReportsComercialRepresentantes";
+import VendasVsCupom from "../pages/ReportsComercialLojas/VendasVsCupom";
 import PageBase from "../pages/PageBase";
 import PageBaseBack from "../pages/PageBaseBack";
 
@@ -117,6 +118,14 @@ const AppRouter = () => {
             element={
               <RequireAuth>
                 <ReportsIndustrial />
+              </RequireAuth>
+            }
+          ></Route>
+          <Route
+            path="/app_dmetal_dev/Vendas x Cupom"
+            element={
+              <RequireAuth>
+                <VendasVsCupom />
               </RequireAuth>
             }
           ></Route>

@@ -14,8 +14,10 @@ import {
   SectionDivider,
   SectionLine,
 } from "./reportscomerciallojas.style";
+import { useNavigate } from "react-router-dom";
 
 const ReportsComercialLojas = () => {
+  const Navigate = useNavigate();
   return (
     <Container
       initial={{ opacity: 0, x: 200 }}
@@ -30,7 +32,10 @@ const ReportsComercialLojas = () => {
             <span>Vendas x Cupom</span>
           </SectionCol1>
           <SectionCol2>
-            <HiMiniChevronRight size={24} />
+            <HiMiniChevronRight
+              size={24}
+              onClick={() => [Navigate(`/app_dmetal_dev/Vendas x Cupom`)]}
+            />
           </SectionCol2>
         </SectionLine>
         <SectionDivider>
