@@ -14,6 +14,7 @@ export const Container = styled(motion.div)`
 
 export const Section = styled.div`
   background-color: #ffffff;
+  border: 1px solid #eeeeee;
   width: 100%;
   border-radius: 10px;
   padding: 14px 0px;

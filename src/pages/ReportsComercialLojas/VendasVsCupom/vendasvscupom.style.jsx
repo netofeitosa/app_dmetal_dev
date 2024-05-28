@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import { theme } from "../../../Theme";
 
-export const Section = styled.section`
+export const Section = styled(motion.section)`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,11 +11,33 @@ export const Section = styled.section`
   gap: 30px;
 `;
 
-export const Resume = styled.div`
+export const Resume = styled(motion.div)`
   display: flex;
-  //flex-direction: column;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+`;
+
+export const ResumeTitle = styled.div`
+  display: flex;
+  margin-bottom: 5px;
+  width: 90%;
+  font-size: 16px;
+  font-weight: 500;
+`;
+
+export const ResumeDivider = styled.div`
+  display: flex;
+  width: 88%;
+  margin-bottom: 10px;
+`;
+
+export const ResumeCard = styled.div`
+  display: flex;
   justify-content: space-between;
   align-items: center;
+  border: 1px solid #eeeeee;
   border-radius: 8px;
   background-color: #ffffff;
   width: 90%;
@@ -90,8 +113,20 @@ export const ResumeCol2 = styled.div`
   }
 `;
 
-export const ResumeDivider = styled.div`
+export const ChartResume = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+`;
+
+export const ChartTitle = styled.div`
+  display: flex;
   margin-bottom: 5px;
+  width: 88%;
+  font-size: 16px;
+  font-weight: 500;
 `;
 
 export const Chart = styled.div`
@@ -99,6 +134,14 @@ export const Chart = styled.div`
   align-items: center;
   width: 90%;
   padding: 10px;
+  border: 1px solid #eeeeee;
   border-radius: 8px;
   background-color: #ffffff;
+`;
+
+export const Details = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 `;

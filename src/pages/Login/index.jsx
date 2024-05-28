@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Divider, Form, Input, message } from "antd";
 import { AuthContext } from "../../contexts/Auth/AuthContext";
+import Spinner from "../../components/Spinner";
 
 import {
   IoFingerPrint,
@@ -26,14 +27,19 @@ import {
 
 const Login = () => {
   const [button, setButton] = useState(false);
+  const [loading, setLoading] = useState(true);
   const auth = useContext(AuthContext);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (auth.user) {
+    if (auth.isLoading) {
+      setLoading(true);
+    } else if (auth.user) {
       navigate("/app_dmetal_dev/aprovacoes");
+    } else {
+      setLoading(false);
     }
-  }, [auth.user]);
+  }, [auth.user, auth.isLoading, navigate]);
 
   async function onFinish(user, password) {
     setButton(true);
@@ -44,7 +50,9 @@ const Login = () => {
     }
   }
 
-  return (
+  return loading ? (
+    <Spinner />
+  ) : (
     <ContainerLogin
       initial={{ opacity: 0, y: 100 }}
       animate={{ opacity: 1, y: 0 }}

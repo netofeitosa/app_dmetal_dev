@@ -30,6 +30,7 @@ export const ContainerUserDataForm = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
+  border: 1px solid #eeeeee;
   padding: 10px 10px;
   border-radius: 10px;
 

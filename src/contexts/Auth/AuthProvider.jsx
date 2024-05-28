@@ -4,19 +4,21 @@ import { useApi } from "../../hooks/useApi";
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   const api = useApi();
 
   useEffect(() => {
     const validadeToken = async () => {
-      const storageDta = localStorage.getItem("authToken");
-      if (storageDta) {
-        const data = await api.validadeToken(storageDta);
+      const storageData = localStorage.getItem("authToken");
+      if (storageData) {
+        const data = await api.validadeToken(storageData);
         if (data) {
           setUser(data);
         } else {
           signout();
         }
       }
+      setIsLoading(false);
     };
     validadeToken();
   }, []);
@@ -41,7 +43,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, signin, signout }}>
+    <AuthContext.Provider value={{ user, isLoading, signin, signout }}>
       {children}
     </AuthContext.Provider>
   );

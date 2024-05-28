@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { RequireAuth } from "../contexts/Auth/RequireAuth";
 
@@ -22,13 +22,12 @@ import { AnimatePresence } from "framer-motion";
 
 const AppRouter = () => {
   const location = useLocation();
-
   const decodedPath = decodeURIComponent(location.pathname.split("/").pop());
 
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
-        <Route path="/app_dmetal_dev" element={<Login />}></Route>
+        <Route path="/app_dmetal_dev" load element={<Login />}></Route>
 
         <Route path="/" element={<PageBase />}>
           <Route
