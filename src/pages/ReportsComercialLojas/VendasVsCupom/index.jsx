@@ -14,8 +14,10 @@ import {
   ResumeDivider,
   ResumeTitle,
   Section,
+  Table,
 } from "./vendasvscupom.style";
 import { Divider } from "antd";
+import TableVendasVsCupom from "../../../components/Charts/TableVendasVsCupom";
 
 const VendasVsCupom = () => {
   const [dados, setDados] = useState();
@@ -99,12 +101,20 @@ const VendasVsCupom = () => {
         </Chart>
       </ChartResume>
 
-      <Details>
+      <Details
+        initial={{ opacity: 0, x: 200 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: -200 }}
+        transition={{ duration: 0.1, delay: 0.2 }}
+      >
         <ResumeDivider>
           <Divider orientation="center" plain>
             Detalhes
           </Divider>
         </ResumeDivider>
+        <Table>
+          <TableVendasVsCupom dados={dados}></TableVendasVsCupom>
+        </Table>
       </Details>
     </Section>
   );

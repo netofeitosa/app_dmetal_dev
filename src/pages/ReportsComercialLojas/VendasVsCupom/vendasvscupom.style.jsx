@@ -139,9 +139,14 @@ export const Chart = styled.div`
   background-color: #ffffff;
 `;
 
-export const Details = styled.div`
+export const Details = styled(motion.div)`
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   width: 100%;
+`;
+
+export const Table = styled.div`
+  width: 90%;
 `;

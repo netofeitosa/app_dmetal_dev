@@ -12,7 +12,7 @@ const ChartVendasVsCupom = (props) => {
   const options = {
     chart: {
       type: "bar",
-      height: 350,
+      height: 200,
     },
     plotOptions: {
       bar: {
@@ -69,7 +69,7 @@ const ChartVendasVsCupom = (props) => {
   return (
     <>
       <div style={{ width: "100%" }}>
-        <Chart options={options} series={series} type="bar" height={350} />
+        <Chart options={options} series={series} type="bar" height={300} />
       </div>
 
       {/* <div>
